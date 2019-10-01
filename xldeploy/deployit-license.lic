@@ -1,0 +1,25 @@
+--- License ---
+License version: 3
+Product: XL Deploy
+Licensed to: DerSalvador
+Contact: Thomas Mueller <Thomas.mueller@juliusbaer.com>
+Expires after: 2019-10-29
+Maximum number of users: 2
+Licensed number of CIs: xl.Satellite=0
+Licensed plugin: tomcat-plugin
+Licensed plugin: was-plugin
+Licensed plugin: wps-plugin
+Licensed plugin: wmq-plugin
+Licensed plugin: jbossas-plugin
+Licensed plugin: jbossdm-plugin
+Licensed plugin: wls-plugin
+Licensed plugin: osb-plugin
+Licensed plugin: glassfish-plugin
+Licensed plugin: windows-plugin
+Licensed plugin: iis-plugin
+Licensed plugin: biztalk-plugin
+Support policy: 8x5
+Edition: Enterprise
+--- Signature (SHA1withDSA) ---
+LS0tIExpY2Vuc2UgLS0tCkxpY2Vuc2UgdmVyc2lvbjogMwpQcm9kdWN0OiBYTCBEZXBsb3kK TGljZW5zZWQgdG86IERlclNhbHZhZG9yIEdtYkgKQ29udGFjdDogTWljaGFlbCBTYW50YW5h IFNhbnRvcyBNZWxsb3VrIDxtaWNoYWVsLnNhbnRhbmEuc2FudG9zQGRlcnNhbHZhZG9yLmNv bT4KUmVwb3NpdG9yeSBpZDogZmZlMzMwNmQtYTgxZC00M2I2LThmNGEtOWMxNGZiYTViMDFl CkV4cGlyZXMgYWZ0ZXI6IDIwMTktMTAtMjkKTGljZW5zZWQgbnVtYmVyIG9mIENJczogeGwu U2F0ZWxsaXRlPTEKU3VwcG9ydCBwb2xpY3k6IDEgbW9udGggb2YgdGVjaG5pY2FsIHN1cHBv cnQKRWRpdGlvbjogVHJpYWwKLS0tIFNpZ25hdHVyZSAoU0hBMXdpdGhEU0EpIC0tLQozMDJj MDIxNDZjOWQ2MjBmY2M3OTQxYWE2OTI2ZGUyZGJkYTQ1NjA2OGQ3YTYzMDIwMjE0MzQ2NmZh Y2ZkYmM5NDQ3MDQxYzUzZjZkYTU4MApjZjZmYjY2N2JlMTcKLS0tIEVuZCBvZiBTaWduYXR1 cmUgLS0tCg==
+--- End of Signature ---

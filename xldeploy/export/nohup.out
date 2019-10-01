@@ -1,0 +1,40 @@
+Forwarding from 127.0.0.1:4516 -> 4516
+Forwarding from [::1]:4516 -> 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+E1001 20:44:20.049844   91594 portforward.go:400] an error occurred forwarding 4516 -> 4516: error forwarding port 4516 to pod 17f31e0bad08fea77234a39e5f635b601dd1801af36c231d3ba6004b2c03e5a4, uid : exit status 1: 2019/10/01 19:44:20 socat[19114] E connect(5, AF=2 127.0.0.1:4516, 16): Connection refused
+Handling connection for 4516
+E1001 21:02:10.809227   91594 portforward.go:400] an error occurred forwarding 4516 -> 4516: error forwarding port 4516 to pod 17f31e0bad08fea77234a39e5f635b601dd1801af36c231d3ba6004b2c03e5a4, uid : PodSandbox with ID starting with 17f31e0bad08fea77234a39e5f635b601dd1801af36c231d3ba6004b2c03e5a4 not found: ID does not exist
+Handling connection for 4516
+E1001 21:05:21.251041   91594 portforward.go:400] an error occurred forwarding 4516 -> 4516: error forwarding port 4516 to pod 17f31e0bad08fea77234a39e5f635b601dd1801af36c231d3ba6004b2c03e5a4, uid : PodSandbox with ID starting with 17f31e0bad08fea77234a39e5f635b601dd1801af36c231d3ba6004b2c03e5a4 not found: ID does not exist

@@ -1,12 +1,29 @@
-Error from server (NotFound): pods "xl-deploy-657f6fcf7b-nbvxjxl-deploy-749d5d946b-2gghv" not found
-Error from server (NotFound): pods "xl-deploy-749d5d946b-2gghvxl-deploy-8f9c4fb8d-dxvhp" not found
-Unable to listen on port 4516: Listeners failed to create with the following errors: [Unable to create listener: Error listen tcp4 127.0.0.1:4516: bind: address already in use Unable to create listener: Error listen tcp6 [::1]:4516: bind: address already in use]
-error: Unable to listen on any of the requested ports: [{4516 4516}]
-Forwarding from 127.0.0.1:4516 -> 4516
-Forwarding from [::1]:4516 -> 4516
-Unable to listen on port 4516: Listeners failed to create with the following errors: [Unable to create listener: Error listen tcp4 127.0.0.1:4516: bind: address already in use Unable to create listener: Error listen tcp6 [::1]:4516: bind: address already in use]
-error: Unable to listen on any of the requested ports: [{4516 4516}]
-Handling connection for 4516
-E1001 16:47:42.758094   43839 portforward.go:400] an error occurred forwarding 4516 -> 4516: error forwarding port 4516 to pod 220b9be27badbe17e2eaa0399eda962f559830ddfbfddc8aba4d752400f75bf8, uid : exit status 1: 2019/10/01 15:47:42 socat[11244] E connect(5, AF=2 127.0.0.1:4516, 16): Connection refused
-Handling connection for 4516
-E1001 16:47:42.896992   43839 portforward.go:400] an error occurred forwarding 4516 -> 4516: error forwarding port 4516 to pod 220b9be27badbe17e2eaa0399eda962f559830ddfbfddc8aba4d752400f75bf8, uid : exit status 1: 2019/10/01 15:47:42 socat[11253] E connect(5, AF=2 127.0.0.1:4516, 16): Connection refused
+Forwarding from 127.0.0.1:27017 -> 27017
+Forwarding from [::1]:27017 -> 27017
+* Verifying dashboard health ...
+* Launching proxy ...
+* Verifying proxy health ...
+* Mounting host path /Users/michaelmellouk/dersalvador/docker-images-saved into VM as /mounted/docker-images-saved ...
+  - Mount type:   <no value>
+  - User ID:      docker
+  - Group ID:     docker
+  - Version:      9p2000.L
+  - Message Size: 262144
+  - Permissions:  755 (-rwxr-xr-x)
+  - Options:      map[]
+* Userspace file server: ufs starting
+* Opening http://127.0.0.1:63243/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+* Successfully mounted /Users/michaelmellouk/dersalvador/docker-images-saved to /mounted/docker-images-saved
+
+* NOTE: This process must stay alive for the mount to be accessible ...
+Handling connection for 27017
+Handling connection for 27017
+Handling connection for 27017
+Forwarding from 127.0.0.1:27017 -> 27017
+Forwarding from [::1]:27017 -> 27017
+Handling connection for 27017
+* Verifying dashboard health ...
+* Launching proxy ...
+* Verifying proxy health ...
+* Opening http://127.0.0.1:58653/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+error: arguments in resource/name form must have a single resource and name

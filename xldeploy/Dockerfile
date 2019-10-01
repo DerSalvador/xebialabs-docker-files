@@ -1,4 +1,4 @@
-FROM xebialabs/xl-deploy:8.5
+FROM xebialabs/xl-deploy:9.0.5-centos
 COPY logback.xml /opt/xebialabs/xl-deploy-server/conf
 # COPY deployit-license.lic /opt/xebialabs/xl-deploy-server/conf
 RUN cat /opt/xebialabs/xl-deploy-server/conf/logback.xml

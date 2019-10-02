@@ -32,3 +32,4 @@ Forwarding from [::1]:4516 -> 4516
 Handling connection for 4516
 Handling connection for 4516
 E1002 11:45:11.465224   32823 portforward.go:233] lost connection to pod
+E1002 16:04:44.016194   11353 portforward.go:233] lost connection to pod

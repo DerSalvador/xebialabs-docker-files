@@ -27,3 +27,7 @@ Handling connection for 27017
 * Verifying proxy health ...
 * Opening http://127.0.0.1:58653/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
 error: arguments in resource/name form must have a single resource and name
+Forwarding from 127.0.0.1:4516 -> 4516
+Forwarding from [::1]:4516 -> 4516
+Handling connection for 4516
+Handling connection for 4516

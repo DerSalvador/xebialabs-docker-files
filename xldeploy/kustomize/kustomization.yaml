@@ -1,0 +1,8 @@
+resources:
+  - manifest.yaml
+
+patches:
+- target:
+    kind: Deployment
+    name: xl-deploy
+  path: jsonpatch.yaml

@@ -23,7 +23,7 @@ spec:
         - name: ACCEPT_EULA
           value: "Y"
         - name: ADMIN_PASSWORD
-          value: Ades121204
+          value: changeit
         image: docker.io/brokerme/xl-deploy:9.0.5-centos-debug
         name: xl-deploy
         resources: {}

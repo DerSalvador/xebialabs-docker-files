@@ -66,7 +66,7 @@
       <port>9990</port>
       <enableDaemon>true</enableDaemon>
       <commandExecutionMode>CLI_COMMANDS</commandExecutionMode>
-      <adminHostAddress>127.0.0.1</adminHostAddress>
+      <adminHostAddress>{{hostip}}</adminHostAddress>
       <username>admin</username>
       <password>{aes:v0}1A1EPf/FBq+p2IuFvvXZiVh+MpnjrQUtuymBxPhH3P0=</password>
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>

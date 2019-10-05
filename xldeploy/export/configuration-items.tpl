@@ -10,8 +10,8 @@
     <udm.Environment id="Environments/UAT" created-by="admin" created-at="2019-10-04T11:09:40.520+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:09:40.520+0000">
       <members>
         <ci ref="Infrastructure/mac/jboss.local" />
-        <ci ref="Infrastructure/mac/jboss.192.168.64.28.nip.io" />
-        <ci ref="Infrastructure/mac/jboss.192.168.64.28.xip.io" />
+        <ci ref="Infrastructure/mac/jboss.{{clusteraddress}}.nip.io" />
+        <ci ref="Infrastructure/mac/jboss.{{clusteraddress}}.xip.io" />
         <ci ref="Infrastructure/mac/mac-jboss" />
         <ci ref="Infrastructure/mac" />
       </members>
@@ -27,7 +27,7 @@
       <os>UNIX</os>
       <puppetPath>/usr/local/bin</puppetPath>
       <connectionType>INTERACTIVE_SUDO</connectionType>
-      <address>192.168.1.20</address>
+      <address>{{hostip}}</address>
       <port>22</port>
       <username>root</username>
       <privateKeyFile>/opt/xebialabs/xl-deploy-server/id_rsa</privateKeyFile>
@@ -41,12 +41,12 @@
       <port>9990</port>
       <enableDaemon>true</enableDaemon>
       <commandExecutionMode>CLI_COMMANDS</commandExecutionMode>
-      <adminHostAddress>192.168.1.20</adminHostAddress>
+      <adminHostAddress>{{hostip}}</adminHostAddress>
       <username>admin</username>
       <password>{aes:v0}wyoI5G4fDaNgUEqg7bSm9rX2BZoGVdss+EZwMZ1NWeI=</password>
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>
     </jbossdm.StandaloneServer>
-    <jbossdm.StandaloneServer id="Infrastructure/mac/jboss.192.168.64.28.nip.io" created-by="admin" created-at="2019-10-04T11:09:33.237+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:24:12.735+0000">
+    <jbossdm.StandaloneServer id="Infrastructure/mac/jboss.{{clusteraddress}}.nip.io" created-by="admin" created-at="2019-10-04T11:09:33.237+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:24:12.735+0000">
       <tags>
         <value>petstore</value>
       </tags>
@@ -54,12 +54,12 @@
       <port>80</port>
       <enableDaemon>true</enableDaemon>
       <commandExecutionMode>CLI_COMMANDS</commandExecutionMode>
-      <adminHostAddress>jboss.192.168.64.28.nip.io</adminHostAddress>
+      <adminHostAddress>jboss.{{clusteraddress}}.nip.io</adminHostAddress>
       <username>admin</username>
       <password>{aes:v0}wyoI5G4fDaNgUEqg7bSm9rX2BZoGVdss+EZwMZ1NWeI=</password>
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>
     </jbossdm.StandaloneServer>
-    <jbossdm.StandaloneServer id="Infrastructure/mac/jboss.192.168.64.28.xip.io" created-by="admin" created-at="2019-10-04T11:24:45.007+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:25:19.683+0000">
+    <jbossdm.StandaloneServer id="Infrastructure/mac/jboss.{{clusteraddress}}.xip.io" created-by="admin" created-at="2019-10-04T11:24:45.007+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:25:19.683+0000">
       <tags>
         <value>petstore</value>
       </tags>
@@ -67,7 +67,7 @@
       <port>80</port>
       <enableDaemon>true</enableDaemon>
       <commandExecutionMode>CLI_COMMANDS</commandExecutionMode>
-      <adminHostAddress>jboss.192.168.64.28.xip.io</adminHostAddress>
+      <adminHostAddress>jboss.{{clusteraddress}}.xip.io</adminHostAddress>
       <username>admin</username>
       <password>{aes:v0}E06DkSRjreo6Q5NDOopPNqpbj8EQLSbQrbkBWnLO5Nc=</password>
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>
@@ -80,7 +80,7 @@
       <port>9990</port>
       <enableDaemon>true</enableDaemon>
       <commandExecutionMode>CLI_COMMANDS</commandExecutionMode>
-      <adminHostAddress>192.168.1.20</adminHostAddress>
+      <adminHostAddress>{{hostip}}</adminHostAddress>
       <username>admin</username>
       <password>{aes:v0}1A1EPf/FBq+p2IuFvvXZiVh+MpnjrQUtuymBxPhH3P0=</password>
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>

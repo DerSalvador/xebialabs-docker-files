@@ -1,0 +1,20 @@
+FROM xebialabs/xl-deploy:9.0.5-centos
+USER root
+COPY conf /opt/xebialabs/xl-deploy-server/conf
+COPY conf/logback.xml /opt/xebialabs/xl-deploy-server/conf
+COPY conf/deployit-license.lic /opt/xebialabs/xl-deploy-server/conf
+COPY conf/deployit.conf /opt/xebialabs/xl-deploy-server/conf
+COPY id_rsa /opt/xebialabs/xl-deploy-server
+COPY id_rsa.pub /opt/xebialabs/xl-deploy-server
+
+RUN mkdir -p /opt/xebialabs/xl-deploy-server/ext/zkb/poc/scripts
+COPY ext/* /opt/xebialabs/xl-deploy-server/ext/
+# COPY samples/rules-demo-plugin-9.0.5.xldp /opt/xebialabs/xl-deploy-server/plugins
+# COPY samples/task-monitor-plugin-9.0.5.xldp /opt/xebialabs/xl-deploy-server/plugins
+# COPY samples/ui-extension-demo-plugin-9.0.5.xldp /opt/xebialabs/xl-deploy-server/plugins
+
+RUN find /opt/xebialabs/xl-deploy-server/ext
+RUN find /opt/xebialabs/xl-deploy-server/conf
+RUN find /opt/xebialabs/xl-deploy-server -maxdepth 1
+
+ENTRYPOINT ["/opt/xebialabs/tini","--","/opt/xebialabs/xl-deploy-server/bin/run-in-container.sh"]

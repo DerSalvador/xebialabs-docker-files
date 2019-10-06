@@ -14,7 +14,7 @@ def webcontainers():
     result = HashSet()
     for _delta in deltas.deltas:
         deployed = _delta.deployedOrPrevious
-        if "easytax.ear" in deployed.name and (_delta.operation == "CREATE" or _delta.operation == "MODIFY"):
+        if "tomcat-sample" in deployed.name and (_delta.operation == "CREATE" or _delta.operation == "MODIFY"):
             current_container = deployed.container
             result.add(current_container)
     return result
@@ -24,7 +24,7 @@ def toolscontainers():
     result = HashSet()
     for _delta in deltas.deltas:
         deployed = _delta.deployedOrPrevious
-        if "easytax-tools" in deployed.name and (_delta.operation == "CREATE" or _delta.operation == "MODIFY"):
+        if "tomcat-sample" in deployed.name and (_delta.operation == "CREATE" or _delta.operation == "MODIFY"):
             current_container = deployed.container
             result.add(current_container)
     return result
@@ -57,7 +57,7 @@ for container in toolscontainers():
     context.addStep(steps.os_script(
         description="Backup folders %s" % container.name,
         order=12,
-        script="jb/easytax/scripts/backupToolsFolder",
+        script="zkb/poc/scripts/backupToolsFolder",
         freemarker_context={'container': container, 'deployedApplication': deployedApp()},
         target_host=container.host))
 
@@ -75,14 +75,12 @@ for container in webcontainers():
         freemarker_context={'container': container, 'deployedApplication': deployedApp()},
         target_host=container.host))
 
-
     context.addStep(steps.os_script(
         description="Backup folders %s" % container.name,
         order=12,
         script="jb/easytax/scripts/backupDeploymentFolder",
         freemarker_context={'container': container, 'deployedApplication': deployedApp()},
         target_host=container.host))
-
 
  #   context.addStep(steps.os_script(
  #       description="Prepare earfile %s" % container.name,

@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<rules xmlns="http://www.xebialabs.com/xl-deploy/xl-rules">
+ <!-- Now packages as plugin in BJB.general in plugins directory
+      rule name="general.permissons1" scope="deployed">
+        <conditions>
+            <type>udm.BaseDeployedArtifact</type>
+            <operation>CREATE</operation>
+            <operation>MODIFY</operation>
+        </conditions>
+        <steps>
+            <os-script>
+               <description expression="true">"Setting permissions 554 on script files (#!/bin/bash in first line) on" + deployed.container.name + ":" + deployed.targetPath</description>
+               <order>72</order>
+               <script>scripts/permissions.sh.ftl</script>
+            </os-script>
+        </steps>
+    </rule-->
+
+   <!--rule name="ebanking.operating" scope="deployed">
+        <conditions>
+            <type>udm.BaseDeployedArtifact</type>
+            <operation>CREATE</operation>
+            <operation>MODIFY</operation>
+        </conditions>
+        <steps>
+            <os-script>
+               <order>72</order>
+               <script>general/scripts/permissions.sh.ftl</script>
+            </os-script>
+        </steps>
+    </rule-->
+    <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <!-- MR: moved to jar file in plugins directory --> 
+    <!-- remove after testing all rules defined here and add the to resp. jar directory under ext and call deployRules.sh -->
+    <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<!--
+<rule name="ebanking.database" scope="deployed">
+        <conditions>
+            <type>udm.BaseDeployedArtifact</type>
+            <operation>CREATE</operation>
+            <operation>MODIFY</operation>
+            <expression>"hmidb-wrapped" in context.deployedApplication.name</expression>
+        </conditions>
+        <steps>
+            <os-script>
+               <order>72</order>
+               <script>ebanking/database/dbman.sh.ftl</script>
+                   <freemarker-context>
+                      <deployedApplication expression="true">deployedApplication</deployedApplication>
+                   </freemarker-context>
+            </os-script>
+        </steps>
+    </rule>
+-->
+<rule name="easytax.database" scope="deployed">
+        <conditions>
+            <type>udm.BaseDeployedArtifact</type>
+            <operation>CREATE</operation>
+            <operation>MODIFY</operation>
+            <!--expression>"easytax-db" in context.deployedApplication.deployeds['easytax-db'].name</expression-->
+            <expression>"easytax-db" in deployed.getName()</expression>
+        </conditions>
+        <steps>
+            <os-script>
+               <description>Running oracle_upgrade scripts</description>
+               <order>71</order>
+               <script>jb/easytax/scripts/findAndExecuteABSUpgradeScript.sh.ftl</script>
+                   <freemarker-context>
+                      <deployedApplication expression="true">deployedApplication</deployedApplication>
+                   </freemarker-context>
+            <upload-artifacts>true</upload-artifacts>
+            <classpath-resources>
+                     <value>jb/easytax/scripts/execSQLScript.sh.ftl</value>
+            </classpath-resources>
+            </os-script>
+        </steps>
+</rule>
+<rule name="easytax.webundeploy" scope="deployed">
+        <conditions>
+            <type>udm.BaseDeployedArtifact</type>
+            <type>udm.BaseDeployed</type>
+            <operation>CREATE</operation>
+            <operation>MODIFY</operation>
+            <!--expression>"easytax-db" in context.deployedApplication.deployeds['easytax-db'].name</expression-->
+            <expression>"easytax.ear" in deployed.name</expression>
+        </conditions>
+        <steps>
+            <os-script>
+            <description>Undeploying Easytax Web</description>
+
+               <order>65</order>
+               <script>jb/easytax/scripts/undeployEasytaxEar.sh.ftl</script>
+                   <freemarker-context>
+                      <deployedApplication expression="true">deployedApplication</deployedApplication>
+                   </freemarker-context>
+            <upload-artifacts>true</upload-artifacts>
+            </os-script>
+        </steps>
+    </rule>
+
+<rule name="kosmos.backend.planning" scope="plan">
+ <planning-script-path>jb/kosmos/planning.py</planning-script-path>
+</rule>
+
+<rule name="ebanking.database.backup.planning" scope="plan">
+ <planning-script-path>jb/ebanking/planning_db_backup.py</planning-script-path>
+</rule>
+
+<rule name="ebanking.database.planning" scope="plan">
+ <planning-script-path>jb/ebanking/planning.py</planning-script-path>
+</rule>
+
+<rule name="easytax.planning" scope="plan">
+ <planning-script-path>jb/easytax/planning.py</planning-script-path>
+</rule>
+
+<rule name="tomcat-sample" scope="plan">
+ <planning-script-path>zkb/poc/planning.py</planning-script-path>
+</rule>
+
+
+   <!--rule name="CST" scope="deployed">
+        <conditions>
+            <type>udm.BaseDeployedArtifact</type>
+            <operation>CREATE</operation>
+            <operation>MODIFY</operation>
+            <expression>"CST" in context.deployedApplication.name</expression>
+        </conditions>
+        <steps>
+            <os-script>
+               <order>73</order>
+               <script>general/scripts/NPFdeployAll.cmd.ftl</script>
+            </os-script>
+        </steps>
+    </rule-->
+  <rule name="ebanking.backend.planning" scope="plan">
+     <planning-script-path>jb/batchserver/planning.py</planning-script-path>
+  </rule>
+
+</rules>

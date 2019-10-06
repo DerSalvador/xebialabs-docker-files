@@ -6,6 +6,7 @@ COPY conf/deployit-license.lic /opt/xebialabs/xl-deploy-server/conf
 COPY conf/deployit.conf /opt/xebialabs/xl-deploy-server/conf
 COPY id_rsa /opt/xebialabs/xl-deploy-server
 COPY id_rsa.pub /opt/xebialabs/xl-deploy-server
+COPY planning.py /opt/xebialabs/xl-deploy-server/ext/jb/easytax/planning.py
 
 RUN find /opt/xebialabs/xl-deploy-server/conf
 RUN find /opt/xebialabs/xl-deploy-server

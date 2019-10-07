@@ -37,25 +37,6 @@ def deployedApp():
     return context.deployedApplication if context.deployedApplication else context.previousDeployedApplication
 
 
-#for container in dbcontainers():
-#    context.addStep(steps.os_script(
-#        description="Execute DB deployment handling for %s" % container.name,
-#        order=73,
-#        script="jb/easytax/scripts/dbman",
-#        freemarker_context={'container': container, 'deployedApplication': deployedApp()},
-#        target_host=container.host))
-
-#    context.addStep(steps.manual(
-#        description="Wait for deployment of Database update scripts %s" % deployedApp().name,
-#        order=74,
-#        message_template="jb/easytax/templates/dbupdatemail.txt.ftl",
-#        mail_server = deployedApp().environment.smtpServer,
-#        mail_to = ["david.richter@juliusbaer.com"],
-#        mail_from = "jb.acm@juliusbaer.com",
-#	subject="Please install SQL scripts",
-#        freemarker_context={'container': container, 'deployedApplication': deployedApp()}))
-
-
 for container in toolscontainers():
     context.addStep(steps.os_script(
         description="Backup folders %s" % container.name,
@@ -65,45 +46,42 @@ for container in toolscontainers():
         target_host=container.host))
 
 for container in webcontainers():
-#    context.addStep(steps.os_script(
-#        description="Stop JBoss/WildFly %s" % container.name,
-#        order=11,
-#        script="zkb/scripts/backupToolsFolder",
-#        freemarker_context={'container': container, 'deployedApplication': deployedApp()},
-#        target_host=container.host))
     context.addStep(steps.os_script(
-        description="Start JBoss/WildFly %s" % container.name,
-        order=11,
-        script="zkb/scripts/backupToolsFolder",
-        freemarker_context={'container': container, 'deployedApplication': deployedApp()},
+        description="ChatOps Notification (Slack, Email, etc.) - %s" % container.name,
+        order=0,
+        script="zkb/scripts/deploymentsteps",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'chatops'},
         target_host=container.host))
 
     context.addStep(steps.os_script(
-        description="Backup folders %s" % container.name,
-        order=12,
-        script="zkb/scripts/backupToolsFolder",
-        freemarker_context={'container': container, 'deployedApplication': deployedApp()},
+        description="Backup Application and Database - %s" % container.name,
+        order=21,
+        script="zkb/scripts/deploymentsteps",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
         target_host=container.host))
 
- #   context.addStep(steps.os_script(
- #       description="Prepare earfile %s" % container.name,
- #       order=71,
- #       script="jb/easytax/scripts/prepareEarfile",
- #       freemarker_context={'container': container, 'deployedApplication': deployedApp()},
- #       target_host=container.host))
-
-#    context.addStep(steps.os_script(
-#        description="Set .dodeploy file on %s" % container.name,
-#        order=72,
-#        script="jb/easytax/scripts/setDodeployFiles",
-#        freemarker_context={'container': container, 'deployedApplication': deployedApp()},
-#        target_host=container.host))
+    context.addStep(steps.os_script(
+        description="Provision and Infrastructure Configuration - %s" % container.name,
+        order=22,
+        script="zkb/scripts/deploymentsteps",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'provision'},
+        target_host=container.host))
 
     context.addStep(steps.os_script(
         description="Run smoketest(s) %s" % container.name,
         order=101,
-        script="zkb/scripts/backupToolsFolder",
-        freemarker_context={'container': container, 'deployedApplication': deployedApp()},
+        script="zkb/scripts/deploymentsteps",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'smoketest'},
         target_host=container.host))
 
 
+# 0 = PRE_FLIGHT
+# 10 = STOP_ARTIFACTS
+# 20 = STOP_CONTAINERS
+# 30 = UNDEPLOY_ARTIFACTS
+# 40 = DESTROY_RESOURCES
+# 60 = CREATE_RESOURCES
+# 70 = DEPLOY_ARTIFACTS
+# 80 = START_CONTAINERS
+# 90 = START_ARTIFACTS
+# 100 = POST_FLIGHT

@@ -12,9 +12,12 @@ def dbcontainers():
 
 def webcontainers():
     result = HashSet()
+    print "====================================================================================="
+    print "In planning.py deployed.name=" 
     for _delta in deltas.deltas:
         deployed = _delta.deployedOrPrevious
-        if "tomcat-sample" in deployed.name and (_delta.operation == "CREATE" or _delta.operation == "MODIFY"):
+        print "In planning.py deployed.name=" + deployed.name
+        if "petstore" in deployed.name and (_delta.operation == "CREATE" or _delta.operation == "MODIFY"):
             current_container = deployed.container
             result.add(current_container)
     return result
@@ -57,7 +60,7 @@ for container in toolscontainers():
     context.addStep(steps.os_script(
         description="Backup folders %s" % container.name,
         order=12,
-        script="zkb/poc/scripts/backupToolsFolder",
+        script="zkb/scripts/backupToolsFolder",
         freemarker_context={'container': container, 'deployedApplication': deployedApp()},
         target_host=container.host))
 
@@ -65,20 +68,20 @@ for container in webcontainers():
 #    context.addStep(steps.os_script(
 #        description="Stop JBoss/WildFly %s" % container.name,
 #        order=11,
-#        script="jb/easytax/scripts/stopWildfly",
+#        script="zkb/scripts/backupToolsFolder",
 #        freemarker_context={'container': container, 'deployedApplication': deployedApp()},
 #        target_host=container.host))
     context.addStep(steps.os_script(
         description="Start JBoss/WildFly %s" % container.name,
         order=11,
-        script="jb/easytax/scripts/startWildfly",
+        script="zkb/scripts/backupToolsFolder",
         freemarker_context={'container': container, 'deployedApplication': deployedApp()},
         target_host=container.host))
 
     context.addStep(steps.os_script(
         description="Backup folders %s" % container.name,
         order=12,
-        script="jb/easytax/scripts/backupDeploymentFolder",
+        script="zkb/scripts/backupToolsFolder",
         freemarker_context={'container': container, 'deployedApplication': deployedApp()},
         target_host=container.host))
 
@@ -99,7 +102,7 @@ for container in webcontainers():
     context.addStep(steps.os_script(
         description="Run smoketest(s) %s" % container.name,
         order=101,
-        script="jb/easytax/scripts/smokeTest",
+        script="zkb/scripts/backupToolsFolder",
         freemarker_context={'container': container, 'deployedApplication': deployedApp()},
         target_host=container.host))
 

@@ -8,7 +8,8 @@ COPY id_rsa /opt/xebialabs/xl-deploy-server
 COPY id_rsa.pub /opt/xebialabs/xl-deploy-server
 
 RUN mkdir -p /opt/xebialabs/xl-deploy-server/ext/zkb/poc/scripts
-COPY ext/* /opt/xebialabs/xl-deploy-server/ext/
+COPY ext/xl-rules.xml /opt/xebialabs/xl-deploy-server/ext/xl-rules.xml
+COPY ext/zkb/* /opt/xebialabs/xl-deploy-server/ext/zkb/
 # COPY samples/rules-demo-plugin-9.0.5.xldp /opt/xebialabs/xl-deploy-server/plugins
 # COPY samples/task-monitor-plugin-9.0.5.xldp /opt/xebialabs/xl-deploy-server/plugins
 # COPY samples/ui-extension-demo-plugin-9.0.5.xldp /opt/xebialabs/xl-deploy-server/plugins

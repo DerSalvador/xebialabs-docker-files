@@ -37,13 +37,13 @@ def deployedApp():
     return context.deployedApplication if context.deployedApplication else context.previousDeployedApplication
 
 
-for container in toolscontainers():
-    context.addStep(steps.os_script(
-        description="Backup folders %s" % container.name,
-        order=12,
-        script="zkb/scripts/backupToolsFolder",
-        freemarker_context={'container': container, 'deployedApplication': deployedApp()},
-        target_host=container.host))
+#for container in toolscontainers():
+#    context.addStep(steps.os_script(
+#        description="Backup folders %s" % container.name,
+#        order=12,
+#        script="zkb/scripts/backupToolsFolder",
+#        freemarker_context={'container': container, 'deployedApplication': deployedApp()},
+#        target_host=container.host))
 
 for container in webcontainers():
     context.addStep(steps.os_script(
@@ -61,7 +61,14 @@ for container in webcontainers():
         target_host=container.host))
 
     context.addStep(steps.os_script(
-        description="Provision and Infrastructure Configuration - %s" % container.name,
+        description="Disable Monitoring - %s" % container.name,
+        order=21,
+        script="zkb/scripts/deploymentsteps",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
+        target_host=container.host))
+
+    context.addStep(steps.os_script(
+        description="Provision/InfraConfig (Ansible, Terraform, K8s Ops)- %s" % container.name,
         order=22,
         script="zkb/scripts/deploymentsteps",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'provision'},
@@ -72,6 +79,13 @@ for container in webcontainers():
         order=101,
         script="zkb/scripts/deploymentsteps",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'smoketest'},
+        target_host=container.host))
+
+    context.addStep(steps.os_script(
+        description="Enable Monitoring - %s" % container.name,
+        order=110,
+        script="zkb/scripts/deploymentsteps",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
         target_host=container.host))
 
 

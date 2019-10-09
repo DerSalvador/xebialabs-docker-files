@@ -55,35 +55,35 @@ for container in webcontainers():
 
     context.addStep(steps.os_script(
         description="Deploy Maintenance Page - %s" % container.name,
-        order=17,
-        script="zkb/scripts/deploymentsteps",
-        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
-        target_host=container.host))
-
-    context.addStep(steps.os_script(
-        description="Stop servers and delete caches - %s" % container.name,
-        order=19,
-        script="zkb/scripts/deploymentsteps",
-        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
-        target_host=container.host))
-
-    context.addStep(steps.os_script(
-        description="Backup Application and Database - %s" % container.name,
-        order=21,
+        order=15,
         script="zkb/scripts/deploymentsteps",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
         target_host=container.host))
 
     context.addStep(steps.os_script(
         description="Disable Monitoring - %s" % container.name,
-        order=21,
+        order=20,
+        script="zkb/scripts/deploymentsteps",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
+        target_host=container.host))
+
+    context.addStep(steps.os_script(
+        description="Stop servers and delete caches - %s" % container.name,
+        order=25,
+        script="zkb/scripts/deploymentsteps",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
+        target_host=container.host))
+
+    context.addStep(steps.os_script(
+        description="Backup Application and Database - %s" % container.name,
+        order=26,
         script="zkb/scripts/deploymentsteps",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
         target_host=container.host))
 
     context.addStep(steps.os_script(
         description="Provision/InfraConfig (Ansible, Terraform, K8s Ops)- %s" % container.name,
-        order=22,
+        order=27,
         script="zkb/scripts/deploymentsteps",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'provision'},
         target_host=container.host))

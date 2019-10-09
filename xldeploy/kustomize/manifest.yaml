@@ -24,7 +24,7 @@ spec:
           value: "Y"
         - name: ADMIN_PASSWORD
           value: changeit
-        image: docker.io/brokerme/xl-deploy:9.0.5-centos-debug-
+        image: docker.io/brokerme/xl-deploy:9.0.5-centos-debug-planning
         name: xl-deploy
         resources: {}
 status: {}

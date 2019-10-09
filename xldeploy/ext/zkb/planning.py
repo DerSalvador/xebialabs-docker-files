@@ -54,6 +54,20 @@ for container in webcontainers():
         target_host=container.host))
 
     context.addStep(steps.os_script(
+        description="Deploy Maintenance Page - %s" % container.name,
+        order=17,
+        script="zkb/scripts/deploymentsteps",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
+        target_host=container.host))
+
+    context.addStep(steps.os_script(
+        description="Stop servers and delete caches - %s" % container.name,
+        order=19,
+        script="zkb/scripts/deploymentsteps",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
+        target_host=container.host))
+
+    context.addStep(steps.os_script(
         description="Backup Application and Database - %s" % container.name,
         order=21,
         script="zkb/scripts/deploymentsteps",

@@ -1,14 +1,14 @@
 --- License ---
 License version: 3
 Product: XL Deploy
-Licensed to: unregistered
-Contact: unregistered unregistered <unregistered>
-Repository id: a1e52a3d-2163-42ed-9817-b42ddfe98cd1
-Expires after: 2019-10-08
-Licensed number of CIs: xl.Satellite=0
-Support policy: Community support
-Edition: Unregistered
+Licensed to: DerSalvador GmbH
+Contact: Michael Santana Santos Mellouk <michael.santana.santos@dersalvador.com>
+Repository id: ffe3306d-a81d-43b6-8f4a-9c14fba5b01e
+Expires after: 2019-10-29
+Licensed number of CIs: xl.Satellite=1
+Support policy: 1 month of technical support
+Edition: Trial
 --- Signature (SHA1withDSA) ---
-302c021461f4ac91fde4aca7fcbacaf1c3c1b9d7ba27ad3302143a744c1d874dc6b82c83eb0bb743
-068f1fd021fb
+302c02146c9d620fcc7941aa6926de2dbda456068d7a630202143466facfdbc9447041c53f6da580
+cf6fb667be17
 --- End of Signature ---

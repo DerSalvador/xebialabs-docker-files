@@ -49,56 +49,56 @@ for container in webcontainers():
     context.addStep(steps.os_script(
         description="ChatOps Notification (Slack, Email, etc.) - %s" % container.name,
         order=0,
-        script="zkb/scripts/deploymentsteps",
+        script="scripts/deploymentsteps",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'chatops'},
         target_host=container.host))
 
     context.addStep(steps.os_script(
         description="Deploy Maintenance Page - %s" % container.name,
         order=15,
-        script="zkb/scripts/deploymentsteps",
+        script="scripts/deploymentsteps",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
         target_host=container.host))
 
     context.addStep(steps.os_script(
         description="Disable Monitoring - %s" % container.name,
         order=20,
-        script="zkb/scripts/deploymentsteps",
+        script="scripts/deploymentsteps",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
         target_host=container.host))
 
     context.addStep(steps.os_script(
         description="Stop servers and delete caches - %s" % container.name,
         order=25,
-        script="zkb/scripts/deploymentsteps",
+        script="scripts/deploymentsteps",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
         target_host=container.host))
 
     context.addStep(steps.os_script(
         description="Backup Application and Database - %s" % container.name,
         order=26,
-        script="zkb/scripts/deploymentsteps",
+        script="scripts/deploymentsteps",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
         target_host=container.host))
 
     context.addStep(steps.os_script(
         description="Provision/InfraConfig (Ansible, Terraform, K8s Ops)- %s" % container.name,
         order=27,
-        script="zkb/scripts/deploymentsteps",
+        script="scripts/deploymentsteps",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'provision'},
         target_host=container.host))
 
     context.addStep(steps.os_script(
         description="Run smoketest(s) %s" % container.name,
         order=101,
-        script="zkb/scripts/deploymentsteps",
+        script="scripts/deploymentsteps",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'smoketest'},
         target_host=container.host))
 
     context.addStep(steps.os_script(
         description="Enable Monitoring - %s" % container.name,
         order=110,
-        script="zkb/scripts/deploymentsteps",
+        script="scripts/deploymentsteps",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
         target_host=container.host))
 

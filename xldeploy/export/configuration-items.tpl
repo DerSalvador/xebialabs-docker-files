@@ -94,7 +94,7 @@
       <commandExecutionMode>CLI_COMMANDS</commandExecutionMode>
       <adminHostAddress>{{hostip}}</adminHostAddress>
       <username>admin</username>
-      <password>{aes:v0}1A1EPf/FBq+p2IuFvvXZiVh+MpnjrQUtuymBxPhH3P0=</password>
+      <password>{aes:v0}wyoI5G4fDaNgUEqg7bSm9rX2BZoGVdss+EZwMZ1NWeI=</password>
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>
     </jbossdm.StandaloneServer>
   </xl:exported-configuration-items>

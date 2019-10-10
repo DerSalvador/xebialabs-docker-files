@@ -56,7 +56,7 @@ for container in webcontainers():
     context.addStep(steps.manual(
 	description="MANUAL STEP - VERY IMPORTANT: Please update alerter.xml (./backend/apps/alerter/config/alerter.xml) with appropriate email addresses",
 	order=11,
-	message_template="scripts/deploymentsteps",
+	message_template="zkb/alerterupdate.txt.ftl",
 	mail_server = deployedApp().environment.smtpServer,
 	mail_to = ["filekeys@gmail.com"],
 	mail_from = "mellouk@filekeys.com",

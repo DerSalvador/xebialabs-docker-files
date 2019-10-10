@@ -15,9 +15,20 @@
         <ci ref="Infrastructure/mac/mac-jboss" />
         <ci ref="Infrastructure/mac" />
       </members>
-      <dictionaries />
+      <triggers />
+      <dictionaries>
+        <ci ref="Environments/UAT_DICT" />
+      </dictionaries>
       <triggers />
     </udm.Environment>
+    <udm.Dictionary id="Environments/UAT_DICT" created-by="admin" created-at="2019-10-10T08:03:55.409+0000" last-modified-by="admin" last-modified-at="2019-10-10T08:03:55.409+0000">
+        <restrictToContainers />
+        <restrictToApplications />
+        <entries>
+          <entry key="JBOSS_HOME">/opt/jboss/wildfly</entry>
+        </entries>
+        <encryptedEntries />
+    </udm.Dictionary>
   </xl:exported-configuration-items>
   <xl:exported-configuration-items exported-root-id="Infrastructure">
     <overthere.SshHost id="Infrastructure/mac" created-by="admin" created-at="2019-10-04T11:09:33.237+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:09:33.237+0000">

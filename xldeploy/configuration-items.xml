@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xl:export xmlns:xl="http://www.xebialabs.com/xl-export">
+  <xl:metadata>
+    <xl:exported-by>admin</xl:exported-by>
+    <xl:exported-at>2019-10-10T14:33:37.878+0000</xl:exported-at>
+    <xl:exported-format-version>9.0.5</xl:exported-format-version>
+    <xl:encryption-key-fingerprint>75a69783f7141d2adfa359690aeaf03facaa3f7d</xl:encryption-key-fingerprint>
+  </xl:metadata>
+  <xl:exported-configuration-items exported-root-id="Environments">
+    <udm.Environment id="Environments/UAT" created-by="admin" created-at="2019-10-10T14:31:21.415+0000" last-modified-by="admin" last-modified-at="2019-10-10T14:33:16.346+0000">
+      <members>
+        <ci ref="Infrastructure/mac/jboss.local" />
+        <ci ref="Infrastructure/mac/jboss.192.168.64.35.nip.io" />
+        <ci ref="Infrastructure/mac/jboss.192.168.64.35.xip.io" />
+        <ci ref="Infrastructure/mac/mac-jboss" />
+        <ci ref="Infrastructure/mac" />
+      </members>
+      <dictionaries>
+        <ci ref="Environments/UAT_DICT" />
+      </dictionaries>
+      <triggers />
+      <smtpServer ref="Configuration/UAT_SMTP_SERVER" />
+    </udm.Environment>
+    <udm.Dictionary id="Environments/UAT_DICT" created-by="admin" created-at="2019-10-10T14:31:21.415+0000" last-modified-by="admin" last-modified-at="2019-10-10T14:31:21.415+0000">
+      <restrictToContainers />
+      <restrictToApplications />
+      <entries>
+        <entry key="JBOSS_HOME">/opt/jboss/wildfly</entry>
+      </entries>
+      <encryptedEntries />
+    </udm.Dictionary>
+  </xl:exported-configuration-items>
+</xl:export>

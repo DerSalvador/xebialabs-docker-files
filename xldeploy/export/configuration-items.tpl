@@ -20,6 +20,7 @@
         <ci ref="Environments/UAT_DICT" />
       </dictionaries>
       <triggers />
+      <smtpServer ref="Configuration/UAT_SMTP_SERVER" />
     </udm.Environment>
     <udm.Dictionary id="Environments/UAT_DICT" created-by="admin" created-at="2019-10-10T08:03:55.409+0000" last-modified-by="admin" last-modified-at="2019-10-10T08:03:55.409+0000">
         <restrictToContainers />
@@ -97,5 +98,15 @@
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>
     </jbossdm.StandaloneServer>
   </xl:exported-configuration-items>
-
+<xl:exported-configuration-items exported-root-id="Configuration">
+    <mail.SmtpServer id="Configuration/UAT_SMTP_SERVER" created-by="admin" created-at="2019-10-10T13:58:44.481+0000" last-modified-by="admin" last-modified-at="2019-10-10T13:59:42.972+0000">
+      <host>mail.filekeys.com</host>
+      <port>25</port>
+      <username>mellouk</username>
+      <password>{aes:v0}vpgjyY2K+kVIc1WiTppUjJKIK+TJLBzIziz1E2TGG+s=</password>
+      <fromAddress>mellouk@filekeys.com</fromAddress>
+      <testAddress>filekeys@gmail.com</testAddress>
+      <smtpProperties />
+    </mail.SmtpServer>
+  </xl:exported-configuration-items>
 </xl:export>

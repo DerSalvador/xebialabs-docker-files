@@ -12,7 +12,6 @@
         <ci ref="Infrastructure/mac/jboss.local" />
         <ci ref="Infrastructure/mac/jboss.{{clusteraddress}}.nip.io" />
         <ci ref="Infrastructure/mac/jboss.{{clusteraddress}}.xip.io" />
-        <ci ref="Infrastructure/mac/mac-jboss" />
         <ci ref="Infrastructure/mac" />
       </members>
       <triggers />

@@ -26,6 +26,7 @@
         <restrictToApplications />
         <entries>
           <entry key="JBOSS_HOME">/opt/jboss/wildfly</entry>
+          <entry key="message">Hello ZKB!</entry>
         </entries>
         <encryptedEntries />
     </udm.Dictionary>

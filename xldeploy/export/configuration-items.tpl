@@ -45,7 +45,7 @@
       <privateKeyFile>/opt/xebialabs/xl-deploy-server/id_rsa</privateKeyFile>
       <sudoUsername>root</sudoUsername>
     </overthere.SshHost>
-    <jbossdm.StandaloneServer id="Infrastructure/mac/jboss.local" created-by="admin" created-at="2019-10-04T11:09:33.237+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:24:12.735+0000">
+ <jbossdm.StandaloneServer id="Infrastructure/mac/jboss.local" created-by="admin" created-at="2019-10-14T17:16:21.755+0000" last-modified-by="admin" last-modified-at="2019-10-14T17:16:21.755+0000">
       <tags>
         <value>petstore</value>
       </tags>
@@ -53,9 +53,9 @@
       <port>9990</port>
       <enableDaemon>true</enableDaemon>
       <commandExecutionMode>CLI_COMMANDS</commandExecutionMode>
-      <adminHostAddress>{{hostip}}</adminHostAddress>
+      <adminHostAddress>192.168.1.20</adminHostAddress>
       <username>admin</username>
-      <password>{aes:v0}wyoI5G4fDaNgUEqg7bSm9rX2BZoGVdss+EZwMZ1NWeI=</password>
+      <password>{aes:v0}3ZY/noV0UTCzbX2xGqbiVjoXmgbdslV18UMM5XTI5As=</password>
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>
     </jbossdm.StandaloneServer>
     <jbossdm.StandaloneServer id="Infrastructure/mac/jboss.{{clusteraddress}}.nip.io" created-by="admin" created-at="2019-10-04T11:09:33.237+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:24:12.735+0000">

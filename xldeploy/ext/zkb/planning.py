@@ -64,14 +64,14 @@ for container in webcontainers():
 	freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'manual'}))
 
     context.addStep(steps.os_script(
-        description="Deploy Maintenance Page - %s" % container.name,
+        description="Disable Monitoring - %s" % container.name,
         order=15,
         script="scripts/deploymentsteps",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
         target_host=container.host))
 
     context.addStep(steps.os_script(
-        description="Disable Monitoring - %s" % container.name,
+        description="Deploy Maintenance Page - %s" % container.name,
         order=20,
         script="scripts/deploymentsteps",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},

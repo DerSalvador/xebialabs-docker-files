@@ -1,2 +1,3 @@
 Forwarding from 127.0.0.1:4516 -> 4516
 Forwarding from [::1]:4516 -> 4516
+E1014 23:34:50.899491   42121 portforward.go:233] lost connection to pod

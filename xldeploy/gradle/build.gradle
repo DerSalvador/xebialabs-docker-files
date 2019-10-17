@@ -1,0 +1,31 @@
+apply plugin: 'war'
+apply plugin: 'com.xebialabs.xl-deploy'
+version = "1.2"
+xldeploy {
+  xldUrl = "http://localhost:4516/"
+  xldUsername = "admin"
+  xldPassword = "changeit"
+}
+tasks.deploy.configure {
+  environmentId = "Environments/UAT"
+  cancelTaskOnError = false
+  deletePreviouslyDeployedDar = false
+  skipMode = true
+  orchestrator = "parallel-by-container"
+  testMode = false
+}
+buildscript {
+  repositories {
+    jcenter()
+    maven {
+      url "http://www.knopflerfish.org/maven2/"
+    }
+    maven {
+      url "https://dist.xebialabs.com/public/maven2/"
+    }
+  }
+  dependencies {
+    classpath 'com.xebialabs.gradle:xl-deploy-gradle-plugin:0.2.0'
+  }
+}
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<udm.DeploymentPackage version="1.2" application="petstore">
+  <orchestrator>parallel-by-container</orchestrator>
+  <satisfiesReleaseNotes>true</satisfiesReleaseNotes>
+  <satisfiesJiraTicketForUAT>jira-1</satisfiesJiraTicketForUAT>
+  <deployables>
+    <file.Folder name="petstore-1.2.zip">
+      <scanPlaceholders>true</scanPlaceholders>
+      <fileUri>http://www.filekeys.com/petstore-1_3_1_02.zip</fileUri>
+      <targetPath>/tmp</targetPath>
+      <createTargetPath>true</createTargetPath>
+      <tags>
+        <value>petstore</value>
+      </tags>
+    </file.Folder>
+  </deployables>
+</udm.DeploymentPackage>

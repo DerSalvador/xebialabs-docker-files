@@ -9,8 +9,8 @@
   <xl:exported-configuration-items exported-root-id="Environments">
     <udm.Environment id="Environments/UAT" created-by="admin" created-at="2019-10-04T11:09:40.520+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:09:40.520+0000">
       <members>
-        <ci ref="Infrastructure/mac/jboss.local" />
-        <ci ref="Infrastructure/mac/jboss.{{clusteraddress}}.nip.io" />
+        <!--ci ref="Infrastructure/mac/jboss.local" /-->
+        <!--ci ref="Infrastructure/mac/jboss.{{clusteraddress}}.nip.io" /-->
         <ci ref="Infrastructure/mac/jboss.{{clusteraddress}}.xip.io" />
         <ci ref="Infrastructure/mac" />
       </members>

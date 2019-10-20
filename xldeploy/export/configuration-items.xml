@@ -144,7 +144,7 @@
       <toState>FAILED</toState>
     </trigger.StepTrigger>
     <mail.SmtpServer id="Configuration/PRD_SMTP_SERVER" created-by="admin" created-at="2019-10-10T13:58:44.481+0000" last-modified-by="admin" last-modified-at="2019-10-10T13:59:42.972+0000">
-      <host>api.eu.mailgun.org</host>
+      <host>smtp.eu.mailgun.org</host>
       <port>587</port>
       <username>postmaster@io.brokerme.club</username>
       <password>{aes:v0}vpgjyY2K+kVIc1WiTppUjJKIK+TJLBzIziz1E2TGG+s=</password>

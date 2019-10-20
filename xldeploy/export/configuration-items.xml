@@ -7,6 +7,29 @@
     <xl:encryption-key-fingerprint>75a69783f7141d2adfa359690aeaf03facaa3f7d</xl:encryption-key-fingerprint>
   </xl:metadata>
   <xl:exported-configuration-items exported-root-id="Environments">
+    <udm.Environment id="Environments/PRD" created-by="admin" created-at="2019-10-04T11:09:40.520+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:09:40.520+0000">
+      <members>
+        <!--ci ref="Infrastructure/mac/jboss.local" /-->
+        <!--ci ref="Infrastructure/mac/jboss.192.168.64.38.nip.io" /-->
+        <ci ref="Infrastructure/mac/jboss.192.168.64.38.xip.io" />
+        <ci ref="Infrastructure/mac" />
+      </members>
+      <triggers />
+      <dictionaries>
+        <ci ref="Environments/PRD_DICT" />
+      </dictionaries>
+      <triggers />
+      <smtpServer ref="Configuration/PRD_SMTP_SERVER" />
+    </udm.Environment>
+    <udm.Dictionary id="Environments/PRD_DICT" created-by="admin" created-at="2019-10-10T08:03:55.409+0000" last-modified-by="admin" last-modified-at="2019-10-10T08:03:55.409+0000">
+        <restrictToContainers />
+        <restrictToApplications />
+        <entries>
+          <entry key="JBOSS_HOME">/opt/jboss/wildfly</entry>
+          <entry key="message">Hello ZKB!</entry>
+        </entries>
+        <encryptedEntries />
+    </udm.Dictionary>
     <udm.Environment id="Environments/UAT" created-by="admin" created-at="2019-10-04T11:09:40.520+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:09:40.520+0000">
       <members>
         <!--ci ref="Infrastructure/mac/jboss.local" /-->
@@ -99,6 +122,15 @@
     </jbossdm.StandaloneServer>
   </xl:exported-configuration-items>
 <xl:exported-configuration-items exported-root-id="Configuration">
+    <mail.SmtpServer id="Configuration/PRD_SMTP_SERVER" created-by="admin" created-at="2019-10-10T13:58:44.481+0000" last-modified-by="admin" last-modified-at="2019-10-10T13:59:42.972+0000">
+      <host>api.eu.mailgun.org</host>
+      <port>587</port>
+      <username>postmaster@io.brokerme.club</username>
+      <password>{aes:v0}vpgjyY2K+kVIc1WiTppUjJKIK+TJLBzIziz1E2TGG+s=</password>
+      <fromAddress>postmaster@io.brokerme.club</fromAddress>
+      <testAddress>filekeys@gmail.com</testAddress>
+      <smtpProperties />
+    </mail.SmtpServer>
     <mail.SmtpServer id="Configuration/UAT_SMTP_SERVER" created-by="admin" created-at="2019-10-10T13:58:44.481+0000" last-modified-by="admin" last-modified-at="2019-10-10T13:59:42.972+0000">
       <host>mail.filekeys.com</host>
       <port>25</port>

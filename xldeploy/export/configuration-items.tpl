@@ -9,10 +9,10 @@
   <xl:exported-configuration-items exported-root-id="Environments">
     <udm.Environment id="Environments/PRD" created-by="admin" created-at="2019-10-04T11:09:40.520+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:09:40.520+0000">
       <members>
-        <!--ci ref="Infrastructure/mac/jboss.local" /-->
-        <!--ci ref="Infrastructure/mac/jboss.{{clusteraddress}}.nip.io" /-->
-        <ci ref="Infrastructure/mac/jboss.{{clusteraddress}}.xip.io" />
-        <ci ref="Infrastructure/mac" />
+        <!--ci ref="Infrastructure/mac-2/jboss.local" /-->
+        <!--ci ref="Infrastructure/mac-2/jboss.{{clusteraddress}}.nip.io" /-->
+        <ci ref="Infrastructure/mac-2/jboss.{{clusteraddress}}.xip.io" />
+        <ci ref="Infrastructure/mac-2" />
       </members>
       <triggers />
       <dictionaries>
@@ -34,10 +34,10 @@
     </udm.Dictionary>
     <udm.Environment id="Environments/UAT" created-by="admin" created-at="2019-10-04T11:09:40.520+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:09:40.520+0000">
       <members>
-        <!--ci ref="Infrastructure/mac/jboss.local" /-->
-        <!--ci ref="Infrastructure/mac/jboss.{{clusteraddress}}.nip.io" /-->
-        <ci ref="Infrastructure/mac/jboss.{{clusteraddress}}.xip.io" />
-        <ci ref="Infrastructure/mac" />
+        <!--ci ref="Infrastructure/mac-1/jboss.local" /-->
+        <!--ci ref="Infrastructure/mac-1/jboss.{{clusteraddress}}.nip.io" /-->
+        <ci ref="Infrastructure/mac-1/jboss.{{clusteraddress}}.xip.io" />
+        <ci ref="Infrastructure/mac-1" />
       </members>
       <triggers />
       <dictionaries>
@@ -59,7 +59,7 @@
     </udm.Dictionary>
   </xl:exported-configuration-items>
   <xl:exported-configuration-items exported-root-id="Infrastructure">
-    <overthere.SshHost id="Infrastructure/mac" created-by="admin" created-at="2019-10-04T11:09:33.237+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:09:33.237+0000">
+    <overthere.SshHost id="Infrastructure/mac-1" created-by="admin" created-at="2019-10-04T11:09:33.237+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:09:33.237+0000">
       <tags>
         <value>petstore</value>
       </tags>
@@ -72,7 +72,20 @@
       <privateKeyFile>/opt/xebialabs/xl-deploy-server/id_rsa</privateKeyFile>
       <sudoUsername>root</sudoUsername>
     </overthere.SshHost>
- <jbossdm.StandaloneServer id="Infrastructure/mac/jboss.local" created-by="admin" created-at="2019-10-14T17:16:21.755+0000" last-modified-by="admin" last-modified-at="2019-10-14T17:16:21.755+0000">
+    <overthere.SshHost id="Infrastructure/mac-2" created-by="admin" created-at="2019-10-04T11:09:33.237+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:09:33.237+0000">
+      <tags>
+        <value>petstore</value>
+      </tags>
+      <os>UNIX</os>
+      <puppetPath>/usr/local/bin</puppetPath>
+      <connectionType>INTERACTIVE_SUDO</connectionType>
+      <address>{{hostip}}</address>
+      <port>22</port>
+      <username>root</username>
+      <privateKeyFile>/opt/xebialabs/xl-deploy-server/id_rsa</privateKeyFile>
+      <sudoUsername>root</sudoUsername>
+    </overthere.SshHost>
+    <jbossdm.StandaloneServer id="Infrastructure/mac-1/jboss.local" created-by="admin" created-at="2019-10-14T17:16:21.755+0000" last-modified-by="admin" last-modified-at="2019-10-14T17:16:21.755+0000">
       <tags>
         <value>petstore</value>
       </tags>
@@ -85,7 +98,7 @@
       <password>{aes:v0}3ZY/noV0UTCzbX2xGqbiVjoXmgbdslV18UMM5XTI5As=</password>
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>
     </jbossdm.StandaloneServer>
-    <jbossdm.StandaloneServer id="Infrastructure/mac/jboss.{{clusteraddress}}.nip.io" created-by="admin" created-at="2019-10-04T11:09:33.237+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:24:12.735+0000">
+    <jbossdm.StandaloneServer id="Infrastructure/mac-1/jboss.{{clusteraddress}}.nip.io" created-by="admin" created-at="2019-10-04T11:09:33.237+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:24:12.735+0000">
       <tags>
         <value>petstore</value>
       </tags>
@@ -98,7 +111,7 @@
       <password>{aes:v0}wyoI5G4fDaNgUEqg7bSm9rX2BZoGVdss+EZwMZ1NWeI=</password>
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>
     </jbossdm.StandaloneServer>
-    <jbossdm.StandaloneServer id="Infrastructure/mac/jboss.{{clusteraddress}}.xip.io" created-by="admin" created-at="2019-10-04T11:24:45.007+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:25:19.683+0000">
+    <jbossdm.StandaloneServer id="Infrastructure/mac-1/jboss.{{clusteraddress}}.xip.io" created-by="admin" created-at="2019-10-04T11:24:45.007+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:25:19.683+0000">
       <tags>
         <value>petstore</value>
       </tags>
@@ -111,7 +124,59 @@
       <password>{aes:v0}E06DkSRjreo6Q5NDOopPNqpbj8EQLSbQrbkBWnLO5Nc=</password>
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>
     </jbossdm.StandaloneServer>
-    <jbossdm.StandaloneServer id="Infrastructure/mac/mac-jboss" created-by="admin" created-at="2019-10-04T11:09:33.237+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:09:33.237+0000">
+    <jbossdm.StandaloneServer id="Infrastructure/mac-1/mac-jboss" created-by="admin" created-at="2019-10-04T11:09:33.237+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:09:33.237+0000">
+      <tags>
+        <value>petstore</value>
+      </tags>
+      <home>/opt/jboss/wildfly</home>
+      <port>9990</port>
+      <enableDaemon>true</enableDaemon>
+      <commandExecutionMode>CLI_COMMANDS</commandExecutionMode>
+      <adminHostAddress>{{hostip}}</adminHostAddress>
+      <username>admin</username>
+      <password>{aes:v0}wyoI5G4fDaNgUEqg7bSm9rX2BZoGVdss+EZwMZ1NWeI=</password>
+      <cliScriptPrefix>jboss-cli</cliScriptPrefix>
+    </jbossdm.StandaloneServer>
+    <jbossdm.StandaloneServer id="Infrastructure/mac-2/jboss.local" created-by="admin" created-at="2019-10-14T17:16:21.755+0000" last-modified-by="admin" last-modified-at="2019-10-14T17:16:21.755+0000">
+      <tags>
+        <value>petstore</value>
+      </tags>
+      <home>/opt/jboss/wildfly</home>
+      <port>9990</port>
+      <enableDaemon>true</enableDaemon>
+      <commandExecutionMode>CLI_COMMANDS</commandExecutionMode>
+      <adminHostAddress>192.168.1.20</adminHostAddress>
+      <username>admin</username>
+      <password>{aes:v0}3ZY/noV0UTCzbX2xGqbiVjoXmgbdslV18UMM5XTI5As=</password>
+      <cliScriptPrefix>jboss-cli</cliScriptPrefix>
+    </jbossdm.StandaloneServer>
+    <jbossdm.StandaloneServer id="Infrastructure/mac-2/jboss.{{clusteraddress}}.nip.io" created-by="admin" created-at="2019-10-04T11:09:33.237+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:24:12.735+0000">
+      <tags>
+        <value>petstore</value>
+      </tags>
+      <home>/opt/jboss/wildfly</home>
+      <port>80</port>
+      <enableDaemon>true</enableDaemon>
+      <commandExecutionMode>CLI_COMMANDS</commandExecutionMode>
+      <adminHostAddress>jboss.{{clusteraddress}}.nip.io</adminHostAddress>
+      <username>admin</username>
+      <password>{aes:v0}wyoI5G4fDaNgUEqg7bSm9rX2BZoGVdss+EZwMZ1NWeI=</password>
+      <cliScriptPrefix>jboss-cli</cliScriptPrefix>
+    </jbossdm.StandaloneServer>
+    <jbossdm.StandaloneServer id="Infrastructure/mac-2/jboss.{{clusteraddress}}.xip.io" created-by="admin" created-at="2019-10-04T11:24:45.007+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:25:19.683+0000">
+      <tags>
+        <value>petstore</value>
+      </tags>
+      <home>/opt/jboss/wildfly</home>
+      <port>80</port>
+      <enableDaemon>true</enableDaemon>
+      <commandExecutionMode>CLI_COMMANDS</commandExecutionMode>
+      <adminHostAddress>jboss.{{clusteraddress}}.xip.io</adminHostAddress>
+      <username>admin</username>
+      <password>{aes:v0}E06DkSRjreo6Q5NDOopPNqpbj8EQLSbQrbkBWnLO5Nc=</password>
+      <cliScriptPrefix>jboss-cli</cliScriptPrefix>
+    </jbossdm.StandaloneServer>
+    <jbossdm.StandaloneServer id="Infrastructure/mac-2/mac-jboss" created-by="admin" created-at="2019-10-04T11:09:33.237+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:09:33.237+0000">
       <tags>
         <value>petstore</value>
       </tags>
@@ -125,7 +190,13 @@
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>
     </jbossdm.StandaloneServer>
   </xl:exported-configuration-items>
-<xl:exported-configuration-items exported-root-id="Configuration">
+  <xl:exported-configuration-items exported-root-id="Configuration">
+    <release.DeploymentPipeline id="Configuration/CD-PIPELINE" created-by="admin" created-at="2019-10-20T20:20:36.597+0000" last-modified-by="admin" last-modified-at="2019-10-20T20:20:36.597+0000">
+      <pipeline>
+        <ci ref="Environments/UAT" />
+        <ci ref="Environments/PRD" />
+      </pipeline>
+    </release.DeploymentPipeline>
     <trigger.EmailNotification id="Configuration/FailedEmailAction" created-by="admin" created-at="2019-10-20T09:57:44.551+0000" last-modified-by="admin" last-modified-at="2019-10-20T10:17:06.059+0000">
       <toAddresses>
         <value>filekeys@gmail.com</value>

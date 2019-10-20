@@ -72,7 +72,7 @@
       <privateKeyFile>/opt/xebialabs/xl-deploy-server/id_rsa</privateKeyFile>
       <sudoUsername>root</sudoUsername>
     </overthere.SshHost>
- <jbossdm.StandaloneServer id="Infrastructure/mac/jboss.local" created-by="admin" created-at="2019-10-14T17:16:21.755+0000" last-modified-by="admin" last-modified-at="2019-10-14T17:16:21.755+0000">
+    <jbossdm.StandaloneServer id="Infrastructure/mac/jboss.local" created-by="admin" created-at="2019-10-14T17:16:21.755+0000" last-modified-by="admin" last-modified-at="2019-10-14T17:16:21.755+0000">
       <tags>
         <value>petstore</value>
       </tags>
@@ -125,7 +125,13 @@
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>
     </jbossdm.StandaloneServer>
   </xl:exported-configuration-items>
-<xl:exported-configuration-items exported-root-id="Configuration">
+  <xl:exported-configuration-items exported-root-id="Configuration">
+    <release.DeploymentPipeline id="Configuration/CD-PIPELINE" created-by="admin" created-at="2019-10-20T20:20:36.597+0000" last-modified-by="admin" last-modified-at="2019-10-20T20:20:36.597+0000">
+      <pipeline>
+        <ci ref="Environments/UAT" />
+        <ci ref="Environments/PRD" />
+      </pipeline>
+    </release.DeploymentPipeline>
     <trigger.EmailNotification id="Configuration/FailedEmailAction" created-by="admin" created-at="2019-10-20T09:57:44.551+0000" last-modified-by="admin" last-modified-at="2019-10-20T10:17:06.059+0000">
       <toAddresses>
         <value>filekeys@gmail.com</value>

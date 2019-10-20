@@ -3,4 +3,20 @@
     Note: If you modify this file, you must restart the XL Deploy server.
 -->
 <synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<type-modification type="udm.Version">
+      <property name="satisfiesJiraTicketForUAT" required="false" category="Requirements" />
+      <property name="satisfiesJiraTicketForProduction" required="false"  category="Requirements"/>
+   </type-modification>
+
+   <type-modification type="udm.Environment">
+      <property name="requiresJiraTicketForUAT" kind="boolean" default="false" required="false" category="Requirements" />
+      <property name="requiresJiraTicketForProduction"  kind="boolean" default="false" required="false" category="Requirements"/>
+   </type-modification>
+
+   <type-modification type="udm.Environment">
+      <property name="jiraUrl"  default="false" required="false" category="JIRA" />
+      <property name="jiraUsername"  default="false" required="false" category="JIRA" />
+      <property name="jiraPassword"  default="false" password="true" required="false" category="JIRA" />
+   </type-modification>
+
 </synthetic>

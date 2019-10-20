@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xl:export xmlns:xl="http://www.xebialabs.com/xl-export">
+  <xl:metadata>
+    <xl:exported-by>admin</xl:exported-by>
+    <xl:exported-at>2019-10-20T10:23:38.151+0000</xl:exported-at>
+    <xl:exported-format-version>9.0.5</xl:exported-format-version>
+    <xl:encryption-key-fingerprint>75a69783f7141d2adfa359690aeaf03facaa3f7d</xl:encryption-key-fingerprint>
+  </xl:metadata>
+  <xl:exported-configuration-items exported-root-id="Configuration">
+    <trigger.EmailNotification id="Configuration/FailedEmailAction" created-by="admin" created-at="2019-10-20T09:57:44.551+0000" last-modified-by="admin" last-modified-at="2019-10-20T10:17:06.059+0000">
+      <toAddresses>
+        <value>filekeys@gmail.com</value>
+      </toAddresses>
+      <fromAddress>mellouk@filekeys.com</fromAddress>
+      <subject>Application ${deployedApplication.version.application.name} failed.</subject>
+      <sendContentAsHtml>true</sendContentAsHtml>
+      <body>&lt;h1&gt;Deployment of ${deployedApplication.version.application.name} has failed on environment ${deployedApplication.environment.name}&lt;/h1&gt;</body>
+      <mailServer ref="Configuration/UAT_SMTP_SERVER" />
+    </trigger.EmailNotification>
+    <trigger.StepTrigger id="Configuration/FailedStepTrigger" created-by="admin" created-at="2019-10-20T10:00:26.715+0000" last-modified-by="admin" last-modified-at="2019-10-20T10:00:26.715+0000">
+      <actions>
+        <ci ref="Configuration/FailedEmailAction" />
+      </actions>
+      <fromState>ANY</fromState>
+      <toState>FAILED</toState>
+    </trigger.StepTrigger>
+    <mail.SmtpServer id="Configuration/PRD_SMTP_SERVER" created-by="admin" created-at="2019-10-20T09:19:50.056+0000" last-modified-by="admin" last-modified-at="2019-10-20T09:49:42.512+0000">
+      <host>smtp.eu.mailgun.org</host>
+      <port>587</port>
+      <username>postmaster@io.brokerme.club</username>
+      <password>{aes:v0}7bhBBmhCUeOpGgyLZJ8UIVoOt5frVR/6ys2URV7uIzqzUdmKOpzzXoEbhcu8ufbW8cD4tPysr7iXTeBzZT5641KCJ6VjrDgDvO3RqIgAHkw=</password>
+      <fromAddress>mellouk@filekeys.com</fromAddress>
+      <testAddress>filekeys@gmail.com</testAddress>
+      <smtpProperties />
+    </mail.SmtpServer>
+    <mail.SmtpServer id="Configuration/UAT_SMTP_SERVER" created-by="admin" created-at="2019-10-20T09:19:50.056+0000" last-modified-by="admin" last-modified-at="2019-10-20T09:19:50.056+0000">
+      <host>mail.filekeys.com</host>
+      <port>25</port>
+      <username>mellouk</username>
+      <password>{aes:v0}iszuODMe7yAr69MZrAexdHYBCgUlRCBKhQF9SdgV0uo=</password>
+      <fromAddress>mellouk@filekeys.com</fromAddress>
+      <testAddress>filekeys@gmail.com</testAddress>
+      <smtpProperties />
+    </mail.SmtpServer>
+  </xl:exported-configuration-items>
+</xl:export>

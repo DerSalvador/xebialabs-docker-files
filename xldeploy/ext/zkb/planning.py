@@ -1,51 +1,36 @@
 from java.util import HashSet
 
-def dbcontainers():
-    result = HashSet()
-    for _delta in deltas.deltas:
-        deployed = _delta.deployedOrPrevious
-        if "easytax-db" in deployed.name and (_delta.operation == "CREATE" or _delta.operation == "MODIFY"):
-            current_container = deployed.container
-            result.add(current_container)
-    return result
+def deployedApp():
+    return context.deployedApplication if context.deployedApplication else context.previousDeployedApplication
 
-
-def webcontainers():
+def webcontainers(appname):
     result = HashSet()
     print "====================================================================================="
     print "In planning.py deployed.name=" 
     for _delta in deltas.deltas:
         deployed = _delta.deployedOrPrevious
         print "In planning.py deployed.name=" + deployed.name
-        if "petstore" in deployed.name and (_delta.operation == "CREATE" or _delta.operation == "MODIFY"):
+        if appname in deployed.name and (_delta.operation == "CREATE" or _delta.operation == "MODIFY"):
             current_container = deployed.container
             result.add(current_container)
     return result
 
 
-def toolscontainers():
-    result = HashSet()
-    for _delta in deltas.deltas:
-        deployed = _delta.deployedOrPrevious
-        if "tomcat-sample" in deployed.name and (_delta.operation == "CREATE" or _delta.operation == "MODIFY"):
-            current_container = deployed.container
-            result.add(current_container)
-    return result
+##########################################################################
+# Deployment Plan for Petstore Application
+##########################################################################
+for container in webcontainers("kitchensink"):
+    context.addStep(steps.os_script(
+        description="Execute SQL script - %s" % container.name,
+        order=90,
+        script="scripts/deploymentstepsKitchen",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'sql'},
+        target_host=container.host))
 
-
-def deployedApp():
-    return context.deployedApplication if context.deployedApplication else context.previousDeployedApplication
-
-
-#for container in toolscontainers():
-#    context.addStep(steps.os_script(
-#        description="Backup folders %s" % container.name,
-#        order=12,
-#        script="zkb/scripts/backupToolsFolder",
-#        freemarker_context={'container': container, 'deployedApplication': deployedApp()},
-#        target_host=container.host))
-
-for container in webcontainers():
+##########################################################################
+# Deployment Plan for Petstore Application
+##########################################################################
+for container in webcontainers("petstore"):
     context.addStep(steps.os_script(
         description="ChatOps Notification (Slack, Email, etc.) - %s" % container.name,
         order=0,

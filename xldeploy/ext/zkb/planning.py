@@ -53,14 +53,15 @@ for container in webcontainers():
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'chatops'},
         target_host=container.host))
 
+    txt = "Deployment of " + deployedApp().version.application.name + " pauses on environment " + deployedApp().environment.name + ", MANUELL confirmation and action needed: Please update alerter.xml (./backend/apps/alerter/config/alerter.xml) with appropriate email addresses"
     context.addStep(steps.manual(
-	description="MANUAL STEP - VERY IMPORTANT: Please update alerter.xml (./backend/apps/alerter/config/alerter.xml) with appropriate email addresses",
+	description=txt,
 	order=11,
 	message_template="zkb/alerterupdate.txt.ftl",
 	mail_server = deployedApp().environment.smtpServer,
 	mail_to = ["filekeys@gmail.com"],
 	mail_from = "mellouk@filekeys.com",
-	subject="Please update alerter.xml",
+	subject=txt,
 	freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'manual'}))
 
     context.addStep(steps.os_script(

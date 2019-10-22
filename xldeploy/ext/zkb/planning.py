@@ -19,6 +19,18 @@ def webcontainers(appname):
 ##########################################################################
 # Deployment Plan for Petstore Application
 ##########################################################################
+for container in webcontainers("rpm"):
+    context.addStep(steps.os_script(
+        description="Extract RPM Package " + deployedApp().version.application.name + " - %s" % container.name,
+        order=90,
+        script="scripts/deploymentstepsRpm",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'sql'},
+        target_host=container.host))
+
+
+##########################################################################
+# Deployment Plan for Petstore Application
+##########################################################################
 for container in webcontainers("kitchensink"):
     context.addStep(steps.os_script(
         description="Execute SQL script - %s" % container.name,

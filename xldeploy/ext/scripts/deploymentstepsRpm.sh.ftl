@@ -9,13 +9,14 @@
 </#list>
 
 <#list deployedApplication.deployeds as deployed>
+     RPM_TARGET="${deployed.targetPath}"
      echo "deployed targetpath=" ${deployed.targetPath}
      echo chmod -R 777 ${deployed.targetPath}
      chmod -R 777 ${deployed.targetPath}
 </#list>
 
-unzip ${deployed.targetPath}/public_html/sugar-hello-world-6-14.fc30.noarch.rpm.zip
-rpm -iFUvh --force --nodeps sugar-hello-world-6-14.fc30.noarch.rpm 
+unzip $RPM_TARGET/public_html/sugar-hello-world-6-14.fc30.noarch.rpm.zip
+/usr/local/bin/rpm -iFUvh --force --nodeps sugar-hello-world-6-14.fc30.noarch.rpm 
 find . 
 
 exit 0

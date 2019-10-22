@@ -1,5 +1,6 @@
 FROM xebialabs/xl-deploy:9.0.5-centos
 USER root
+RUN yum -y install rpm
 COPY conf /opt/xebialabs/xl-deploy-server/conf
 COPY conf/logback.xml /opt/xebialabs/xl-deploy-server/conf
 COPY conf/deployit-license.lic /opt/xebialabs/xl-deploy-server/conf

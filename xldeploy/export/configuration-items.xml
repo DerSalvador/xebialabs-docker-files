@@ -202,7 +202,7 @@
         <value>filekeys@gmail.com</value>
       </toAddresses>
       <fromAddress>mellouk@filekeys.com</fromAddress>
-      <subject>Application ${deployedApplication.version.application.name} failed.</subject>
+      <subject>Deployment step for Application ${deployedApplication.version.application.name} has failed.</subject>
       <sendContentAsHtml>true</sendContentAsHtml>
       <body>&lt;h1&gt;Deployment of ${deployedApplication.version.application.name} has failed on environment ${deployedApplication.environment.name}&lt;/h1&gt;</body>
       <mailServer ref="Configuration/UAT_SMTP_SERVER" />

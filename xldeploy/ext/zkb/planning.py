@@ -50,7 +50,7 @@ for container in webcontainers("petstore"):
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'chatops'},
         target_host=container.host))
 
-    txt = "Deployment of " + deployedApp().version.application.name + " pauses on environment " + deployedApp().environment.name + ", MANUELL confirmation and action needed: Please update alerter.xml (./backend/apps/alerter/config/alerter.xml) with appropriate email addresses"
+    txt = "Deployment of " + deployedApp().version.application.name + " pauses on environment " + deployedApp().environment.name + " - MANUAL confirmation and action needed: Please update alerter.xml (./backend/apps/alerter/config/alerter.xml) with appropriate email addresses"
     context.addStep(steps.manual(
 	description=txt,
 	order=11,

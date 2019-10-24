@@ -59,6 +59,19 @@
     </udm.Dictionary>
   </xl:exported-configuration-items>
   <xl:exported-configuration-items exported-root-id="Infrastructure">
+   <overthere.CifsHost id="Infrastructure/Windows10Cifs" created-by="admin" created-at="2019-10-23T20:48:16.016+0000" last-modified-by="admin" last-modified-at="2019-10-23T20:48:16.016+0000">
+      <tags />
+      <puppetPath>/usr/local/bin</puppetPath>
+      <os>WINDOWS</os>
+      <connectionType>WINRM_INTERNAL</connectionType>
+      <address>DESKTOP-OU0F15M</address>
+      <username>Administrator</username>
+      <password>{aes:v0}UQp46QIEIhmTlj6jAghnpwmP/Qt/627QPqtrkfV/bIk=</password>
+      <winrmEnableHttps>false</winrmEnableHttps>
+      <winrsAllowDelegate>false</winrsAllowDelegate>
+      <pathShareMappings />
+      <cifsPort>445</cifsPort>
+    </overthere.CifsHost>
     <overthere.SshHost id="Infrastructure/mac-1" created-by="admin" created-at="2019-10-04T11:09:33.237+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:09:33.237+0000">
       <tags>
         <value>petstore</value>

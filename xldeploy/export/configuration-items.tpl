@@ -38,6 +38,7 @@
         <!--ci ref="Infrastructure/mac-1/jboss.{{clusteraddress}}.nip.io" /-->
         <ci ref="Infrastructure/mac-1/jboss.{{clusteraddress}}.xip.io" />
         <ci ref="Infrastructure/mac-1" />
+        <ci ref="Infrastructure/Windows10Cifs" />
       </members>
       <triggers />
       <dictionaries>
@@ -60,7 +61,9 @@
   </xl:exported-configuration-items>
   <xl:exported-configuration-items exported-root-id="Infrastructure">
    <overthere.CifsHost id="Infrastructure/Windows10Cifs" created-by="admin" created-at="2019-10-23T20:48:16.016+0000" last-modified-by="admin" last-modified-at="2019-10-23T20:48:16.016+0000">
-      <tags />
+      <tags>
+        <value>windows-webform</value>
+      </tags>
       <puppetPath>/usr/local/bin</puppetPath>
       <os>WINDOWS</os>
       <connectionType>WINRM_INTERNAL</connectionType>

@@ -15,26 +15,35 @@ def webcontainers(appname):
             result.add(current_container)
     return result
 
+##########################################################################
+# Deployment Plan for Windows Application
+##########################################################################
+for container in webcontainers("windows"):
+    context.addStep(steps.os_script(
+        description="Unzip Windows Application to IIS Server " + deployedApp().version.application.name + " - %s" % container.name,
+        order=75,
+        script="scripts/unzipWindowsASPWeb",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'sql'},
+        target_host=container.host))
 
 ##########################################################################
-# Deployment Plan for Petstore Application
+# Deployment Plan for RPM Application
 ##########################################################################
 for container in webcontainers("rpm"):
     context.addStep(steps.os_script(
         description="Extract RPM Package " + deployedApp().version.application.name + " - %s" % container.name,
-        order=90,
+        order=75,
         script="scripts/deploymentstepsRpm",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'sql'},
         target_host=container.host))
 
-
 ##########################################################################
-# Deployment Plan for Petstore Application
+# Deployment Plan for JBoss Ear Application
 ##########################################################################
 for container in webcontainers("kitchensink"):
     context.addStep(steps.os_script(
         description="Execute SQL script - %s" % container.name,
-        order=90,
+        order=75,
         script="scripts/deploymentstepsKitchen",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'sql'},
         target_host=container.host))

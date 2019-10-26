@@ -13,6 +13,7 @@
         <!--ci ref="Infrastructure/mac-2/jboss.192.168.64.43.nip.io" /-->
         <ci ref="Infrastructure/mac-2/jboss.192.168.64.43.xip.io" />
         <ci ref="Infrastructure/mac-2" />
+        <ci ref="Infrastructure/Windows10Cifs" />
       </members>
       <triggers />
       <dictionaries>

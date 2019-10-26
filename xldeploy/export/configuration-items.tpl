@@ -13,6 +13,7 @@
         <!--ci ref="Infrastructure/mac-2/jboss.{{clusteraddress}}.nip.io" /-->
         <ci ref="Infrastructure/mac-2/jboss.{{clusteraddress}}.xip.io" />
         <ci ref="Infrastructure/mac-2" />
+        <ci ref="Infrastructure/Windows10Cifs" />
       </members>
       <triggers />
       <dictionaries>

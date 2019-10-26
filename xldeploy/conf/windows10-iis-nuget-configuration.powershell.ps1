@@ -1,9 +1,12 @@
-PS C:\Windows\System32> type .\enableWinRM.ps1
+Set-ExecutionPolicy Unrestricted
 net user administrator /active:yes
+Get-Module SqlServer -ListAvailable
+Install-Module -Name SqlServer -AllowClobber
+Set-ExecutionPolicy Bypass -Scope Process -Force; `
+  iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 Set-SmbServerConfiguration -EnableSMB2Protocol $true
 Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
-Set-ExecutionPolicy Unrestricted
-Enable-PSRemoting -SkipNetworkProfileCheck -Force                                                                       
+Enable-PSRemoting -SkipNetworkProfileCheck -Force                                                                                                 
 Set-NetConnectionProfile -NetworkCategory Private
 Get-NetConnectionProfile
 ipconfig
@@ -73,11 +76,11 @@ Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET45
 
 # Install UrlRewrite Module for Extensionless Urls (optional)
 ###  & "C:\Program Files\Microsoft\Web Platform Installer\WebpiCmd-x64.exe" /install /Products:UrlRewrite2 /AcceptEULA /SuppressPostFinish
-#choco install urlrewrite -y
+choco install urlrewrite -y
 
 # Install WebDeploy for Deploying to IIS (optional)
 ### & "C:\Program Files\Microsoft\Web Platform Installer\WebpiCmd-x64.exe" /install /Products:WDeployNoSMO /AcceptEULA /SuppressPostFinish
-# choco install webdeploy -y
+choco install webdeploy -y
 
 # Disable Loopback Check on a Server - to get around no local Logins on Windows Server
 # New-ItemProperty HKLM:\System\CurrentControlSet\Control\Lsa -Name "DisableLoopbackCheck" -Value "1" -PropertyType dword

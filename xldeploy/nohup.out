@@ -10,3 +10,23 @@ Handling connection for 4516
 Handling connection for 4516
 Handling connection for 4516
 Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+Handling connection for 4516
+E1029 17:29:45.146975   11370 portforward.go:340] error creating error stream for port 4516 -> 4516: Timeout occured
+E1029 17:29:54.478558   11370 portforward.go:340] error creating error stream for port 4516 -> 4516: Timeout occured
+E1029 17:30:02.325146   11370 portforward.go:233] lost connection to pod

@@ -6,7 +6,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; `
   iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 Set-SmbServerConfiguration -EnableSMB2Protocol $true
 Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
-Enable-PSRemoting -SkipNetworkProfileCheck -Force                                                                                                 
+Enable-PSRemoting -SkipNetworkProfileCheck -Force                                                                                           
 Set-NetConnectionProfile -NetworkCategory Private
 Get-NetConnectionProfile
 ipconfig
@@ -98,4 +98,3 @@ $sourceNugetExe = "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
 $targetNugetExe = "$rootPath\nuget.exe"
 Invoke-WebRequest $sourceNugetExe -OutFile $targetNugetExe
 Set-Alias nuget $targetNugetExe -Scope Global -Verbose
-

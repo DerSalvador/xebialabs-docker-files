@@ -30,6 +30,8 @@
         <entries>
           <entry key="JBOSS_HOME">/opt/jboss/wildfly</entry>
           <entry key="message">Hello PRD ZKB!</entry>
+          <entry key="WINDOWS_URL">http://DESKTOP-OU0F15M:8080</entry>
+          <entry key="PETSTORE_SMOKETEST_URL">http://jboss-webapp.192.168.64.69.nip.io/tomcat-sample/hello.jsp</entry>
         </entries>
         <encryptedEntries />
     </udm.Dictionary>
@@ -56,6 +58,8 @@
         <entries>
           <entry key="JBOSS_HOME">/opt/jboss/wildfly</entry>
           <entry key="message">Hello UAT ZKB!</entry>
+          <entry key="WINDOWS_SMOKETEST_URL">http://DESKTOP-OU0F15M:8080</entry>
+          <entry key="PETSTORE_SMOKETEST_URL">http://jboss-webapp.192.168.64.69.nip.io/tomcat-sample/hello.jsp</entry>
         </entries>
         <encryptedEntries />
     </udm.Dictionary>

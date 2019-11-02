@@ -25,6 +25,12 @@ for container in webcontainers("windows"):
         script="scripts/unzipWindowsASPWeb",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'sql'},
         target_host=container.host))
+    context.addStep(steps.os_script(
+        description="Smoketest " + deployedApp().version.application.name + " - %s" % container.name,
+        order=80,
+        script="scripts/smokeTestCurl",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'sql'},
+        target_host=container.host))
 
 ##########################################################################
 # Deployment Plan for RPM Application
@@ -74,21 +80,21 @@ for container in webcontainers("petstore"):
         description="Disable Monitoring - %s" % container.name,
         order=15,
         script="scripts/deploymentsteps",
-        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'disable_monitoring'},
         target_host=container.host))
 
     context.addStep(steps.os_script(
         description="Deploy Maintenance Page - %s" % container.name,
         order=20,
         script="scripts/deploymentsteps",
-        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'maintenance_page'},
         target_host=container.host))
 
     context.addStep(steps.os_script(
         description="Stop servers and delete caches - %s" % container.name,
         order=25,
         script="scripts/deploymentsteps",
-        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'stop_servers_delete_caches'},
         target_host=container.host))
 
     context.addStep(steps.os_script(
@@ -108,7 +114,7 @@ for container in webcontainers("petstore"):
     context.addStep(steps.os_script(
         description="Run smoketest(s) %s" % container.name,
         order=101,
-        script="scripts/deploymentsteps",
+        script="scripts/smokeTestCurl",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'smoketest'},
         target_host=container.host))
 
@@ -116,7 +122,7 @@ for container in webcontainers("petstore"):
         description="Enable Monitoring - %s" % container.name,
         order=110,
         script="scripts/deploymentsteps",
-        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'enable_monitoring'},
         target_host=container.host))
 
 

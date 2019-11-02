@@ -8,21 +8,30 @@
       </#if>
 </#list>
 
-#chmod -R +w $JBOSS_HOME/../
-#chmod -R o+w $JBOSS_HOME/../
-#chmod -R g+w $JBOSS_HOME/../
+step="${step}"
 
+case "$step" in 
+        "chatops")
+;;
+        "disable_monitoring")
+;;
+        "maintenance_page")
+;;
+        "stop_servers_delete_caches")
+;;
+        "backup")
+;;
+        "provision")
+;;
+        "smoketest")
+;;
+        "enable_monitoring")
+;;
+        *)
+        echo "Step $1 not recognized, stopping ..."
+        exit 1
+;;
 
-#if [ -d "$JBOSS_HOME/../tools/" ]; then
-#   cp -pR $JBOSS_HOME/../tools/ $JBOSS_HOME/../tools.old/
-#else
-#   echo "WARNING: $JBOSS_HOME/../tools/ does not exist"
-#fi
-#
-#if [ -d "$JBOSS_HOME/../operating/" ]; then
-#   cp -pR $JBOSS_HOME/../operating/ $JBOSS_HOME/../operating.old/
-#else
-#   echo "WARNING: $JBOSS_HOME/../operating/ does not exist"
-#fi
+esac
 
 exit 0

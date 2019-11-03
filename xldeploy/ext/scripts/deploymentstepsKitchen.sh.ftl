@@ -16,8 +16,6 @@
 
 cd $JBOSS_HOME
 
-# echo "Petstore Smoketest URL=${deployedApplication.environment.dictionaries[0].entries['PETSTORE_SMOKETEST_URL']}"
-
 if [ -z "$SQL_SCRIPT" ]; then
   echo 'SELECT * FROM INFORMATION_SCHEMA.TABLES' > inf.sql
 else

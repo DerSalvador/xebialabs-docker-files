@@ -1,0 +1,10 @@
+---
+apiVersion: xl-deploy/v1
+kind: Deployment
+spec:
+ package: Applications/petstore/1.0
+ environment: Environments/UAT
+ orchestrators:
+   - parallel-by-deployment-group
+   - sequential-by-container
+

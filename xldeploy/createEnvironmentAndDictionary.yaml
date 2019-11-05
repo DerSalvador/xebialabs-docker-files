@@ -1,0 +1,17 @@
+apiVersion: xl-deploy/v1
+kind: Environments
+spec:
+- name: WebAppDict
+  type: udm.Dictionary
+  entries:
+    region: eu-west-1
+    username: aws-user
+  encryptedEntries:
+    secret: mysecret
+- name: UAT
+  type: udm.Environment
+  members:
+  - ~Infrastructure/mac-1
+  dictionaries:
+  - ~Environments/WebAppDict
+

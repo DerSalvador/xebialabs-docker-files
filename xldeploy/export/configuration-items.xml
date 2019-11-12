@@ -10,8 +10,8 @@
     <udm.Environment id="Environments/PRD" created-by="admin" created-at="2019-10-04T11:09:40.520+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:09:40.520+0000">
       <members>
         <!--ci ref="Infrastructure/mac-2/jboss.local" /-->
-        <!--ci ref="Infrastructure/mac-2/jboss.192.168.64.97.nip.io" /-->
-        <ci ref="Infrastructure/mac-2/jboss.192.168.64.97.xip.io" />
+        <!--ci ref="Infrastructure/mac-2/jboss.192.168.64.99.nip.io" /-->
+        <ci ref="Infrastructure/mac-2/jboss.192.168.64.99.xip.io" />
         <ci ref="Infrastructure/mac-2" />
         <ci ref="Infrastructure/Windows10Cifs" />
       </members>
@@ -31,15 +31,15 @@
           <entry key="JBOSS_HOME">/opt/jboss/wildfly</entry>
           <entry key="message">Hello PRD ZKB!</entry>
           <entry key="WINDOWS_SMOKETEST_URL">http://DESKTOP-OU0F15M:8080</entry>
-          <entry key="PETSTORE_SMOKETEST_URL">http://jboss-webapp.192.168.64.97.nip.io/tomcat-sample/hello.jsp</entry>
+          <entry key="PETSTORE_SMOKETEST_URL">http://jboss-webapp.192.168.64.99.nip.io/tomcat-sample/hello.jsp</entry>
         </entries>
         <encryptedEntries />
     </udm.Dictionary>
     <udm.Environment id="Environments/UAT" created-by="admin" created-at="2019-10-04T11:09:40.520+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:09:40.520+0000">
       <members>
         <!--ci ref="Infrastructure/mac-1/jboss.local" /-->
-        <!--ci ref="Infrastructure/mac-1/jboss.192.168.64.97.nip.io" /-->
-        <ci ref="Infrastructure/mac-1/jboss.192.168.64.97.xip.io" />
+        <!--ci ref="Infrastructure/mac-1/jboss.192.168.64.99.nip.io" /-->
+        <ci ref="Infrastructure/mac-1/jboss.192.168.64.99.xip.io" />
         <ci ref="Infrastructure/mac-1" />
         <ci ref="Infrastructure/Windows10Cifs" />
       </members>
@@ -59,7 +59,7 @@
           <entry key="JBOSS_HOME">/opt/jboss/wildfly</entry>
           <entry key="message">Hello UAT ZKB!</entry>
           <entry key="WINDOWS_SMOKETEST_URL">http://DESKTOP-OU0F15M:8080</entry>
-          <entry key="PETSTORE_SMOKETEST_URL">http://jboss-webapp.192.168.64.97.nip.io/tomcat-sample/hello.jsp</entry>
+          <entry key="PETSTORE_SMOKETEST_URL">http://jboss-webapp.192.168.64.99.nip.io/tomcat-sample/hello.jsp</entry>
         </entries>
         <encryptedEntries />
     </udm.Dictionary>
@@ -119,7 +119,7 @@
       <password>{aes:v0}3ZY/noV0UTCzbX2xGqbiVjoXmgbdslV18UMM5XTI5As=</password>
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>
     </jbossdm.StandaloneServer>
-    <jbossdm.StandaloneServer id="Infrastructure/mac-1/jboss.192.168.64.97.nip.io" created-by="admin" created-at="2019-10-04T11:09:33.237+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:24:12.735+0000">
+    <jbossdm.StandaloneServer id="Infrastructure/mac-1/jboss.192.168.64.99.nip.io" created-by="admin" created-at="2019-10-04T11:09:33.237+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:24:12.735+0000">
       <tags>
         <value>petstore</value>
       </tags>
@@ -127,12 +127,12 @@
       <port>80</port>
       <enableDaemon>true</enableDaemon>
       <commandExecutionMode>CLI_COMMANDS</commandExecutionMode>
-      <adminHostAddress>jboss.192.168.64.97.nip.io</adminHostAddress>
+      <adminHostAddress>jboss.192.168.64.99.nip.io</adminHostAddress>
       <username>admin</username>
       <password>{aes:v0}wyoI5G4fDaNgUEqg7bSm9rX2BZoGVdss+EZwMZ1NWeI=</password>
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>
     </jbossdm.StandaloneServer>
-    <jbossdm.StandaloneServer id="Infrastructure/mac-1/jboss.192.168.64.97.xip.io" created-by="admin" created-at="2019-10-04T11:24:45.007+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:25:19.683+0000">
+    <jbossdm.StandaloneServer id="Infrastructure/mac-1/jboss.192.168.64.99.xip.io" created-by="admin" created-at="2019-10-04T11:24:45.007+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:25:19.683+0000">
       <tags>
         <value>petstore</value>
       </tags>
@@ -140,7 +140,7 @@
       <port>80</port>
       <enableDaemon>true</enableDaemon>
       <commandExecutionMode>CLI_COMMANDS</commandExecutionMode>
-      <adminHostAddress>jboss.192.168.64.97.xip.io</adminHostAddress>
+      <adminHostAddress>jboss.192.168.64.99.xip.io</adminHostAddress>
       <username>admin</username>
       <password>{aes:v0}E06DkSRjreo6Q5NDOopPNqpbj8EQLSbQrbkBWnLO5Nc=</password>
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>
@@ -171,7 +171,7 @@
       <password>{aes:v0}3ZY/noV0UTCzbX2xGqbiVjoXmgbdslV18UMM5XTI5As=</password>
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>
     </jbossdm.StandaloneServer>
-    <jbossdm.StandaloneServer id="Infrastructure/mac-2/jboss.192.168.64.97.nip.io" created-by="admin" created-at="2019-10-04T11:09:33.237+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:24:12.735+0000">
+    <jbossdm.StandaloneServer id="Infrastructure/mac-2/jboss.192.168.64.99.nip.io" created-by="admin" created-at="2019-10-04T11:09:33.237+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:24:12.735+0000">
       <tags>
         <value>petstore</value>
       </tags>
@@ -179,12 +179,12 @@
       <port>80</port>
       <enableDaemon>true</enableDaemon>
       <commandExecutionMode>CLI_COMMANDS</commandExecutionMode>
-      <adminHostAddress>jboss.192.168.64.97.nip.io</adminHostAddress>
+      <adminHostAddress>jboss.192.168.64.99.nip.io</adminHostAddress>
       <username>admin</username>
       <password>{aes:v0}wyoI5G4fDaNgUEqg7bSm9rX2BZoGVdss+EZwMZ1NWeI=</password>
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>
     </jbossdm.StandaloneServer>
-    <jbossdm.StandaloneServer id="Infrastructure/mac-2/jboss.192.168.64.97.xip.io" created-by="admin" created-at="2019-10-04T11:24:45.007+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:25:19.683+0000">
+    <jbossdm.StandaloneServer id="Infrastructure/mac-2/jboss.192.168.64.99.xip.io" created-by="admin" created-at="2019-10-04T11:24:45.007+0000" last-modified-by="admin" last-modified-at="2019-10-04T11:25:19.683+0000">
       <tags>
         <value>petstore</value>
       </tags>
@@ -192,7 +192,7 @@
       <port>80</port>
       <enableDaemon>true</enableDaemon>
       <commandExecutionMode>CLI_COMMANDS</commandExecutionMode>
-      <adminHostAddress>jboss.192.168.64.97.xip.io</adminHostAddress>
+      <adminHostAddress>jboss.192.168.64.99.xip.io</adminHostAddress>
       <username>admin</username>
       <password>{aes:v0}E06DkSRjreo6Q5NDOopPNqpbj8EQLSbQrbkBWnLO5Nc=</password>
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>

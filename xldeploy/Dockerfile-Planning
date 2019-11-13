@@ -15,6 +15,8 @@ COPY ext/synthetic.xml /opt/xebialabs/xl-deploy-server/ext/synthetic.xml
 COPY ext/xl-rules.xml /opt/xebialabs/xl-deploy-server/ext/xl-rules.xml
 COPY ext/zkb/* /opt/xebialabs/xl-deploy-server/ext/zkb/
 COPY ext/scripts/* /opt/xebialabs/xl-deploy-server/ext/scripts/
+
+# COPY xld-rpm-plugin-5.0.2.xldp /opt/xebialabs/xl-deploy-server/plugins
 # COPY samples/rules-demo-plugin-9.0.5.xldp /opt/xebialabs/xl-deploy-server/plugins
 # COPY samples/task-monitor-plugin-9.0.5.xldp /opt/xebialabs/xl-deploy-server/plugins
 # COPY samples/ui-extension-demo-plugin-9.0.5.xldp /opt/xebialabs/xl-deploy-server/plugins

@@ -1,0 +1,210 @@
+---
+apiVersion: xl-deploy/v1
+kind: Applications
+spec:
+- name: Applications/kitchensink
+  type: udm.Application
+  lastVersion: "1.1"
+  pipeline: Configuration/CD-PIPELINE
+  children:
+  - name: "1.1"
+    type: udm.DeploymentPackage
+    orchestrator:
+    - parallel-by-container
+    satisfiesJiraTicketForUAT: jira-1
+    deployables:
+    - name: kitchensink-1.1
+      type: jbossdm.Ear
+      tags:
+      - petstore
+      - kitchensink
+      - uat
+      scanPlaceholders: true
+      preScannedPlaceholders: false
+      fileUri: http://www.filekeys.com/kitchensink-ear.ear
+    dependencyResolution: LATEST
+    undeployDependencies: "false"
+- name: Applications/kitchensink-maven-import
+  type: udm.Application
+  lastVersion: "1.1"
+  children:
+  - name: "1.1"
+    type: udm.DeploymentPackage
+    orchestrator:
+    - parallel-by-container
+    satisfiesJiraTicketForUAT: jira-1
+    deployables:
+    - name: kitchensink-maven-import-1.1
+      type: jbossdm.Ear
+      tags:
+      - petstore
+      - kitchensink
+      - kitchensink-maven-import
+      - uat
+      scanPlaceholders: true
+      preScannedPlaceholders: false
+      fileUri: http://www.filekeys.com/kitchensink-ear.ear
+    dependencyResolution: LATEST
+    undeployDependencies: "false"
+- name: Applications/petstore
+  type: udm.Application
+  lastVersion: "5.0"
+  pipeline: Configuration/CD-PIPELINE
+  children:
+  - name: "2.0"
+    type: udm.DeploymentPackage
+    orchestrator:
+    - parallel-by-container
+    deployables:
+    - name: petstore-2.0.zip
+      type: file.Folder
+      tags:
+      - petstore
+      scanPlaceholders: true
+      preScannedPlaceholders: false
+      fileUri: http://www.filekeys.com/petstore-1_3_1_02.zip
+      targetPath: /u01/app/ebanking
+      createTargetPath: "true"
+    dependencyResolution: LATEST
+    undeployDependencies: "false"
+  - name: "1.0"
+    type: udm.DeploymentPackage
+    orchestrator:
+    - parallel-by-container
+    deployables:
+    - name: tomcat-sample
+      type: jee.War
+      tags:
+      - petstore
+      scanPlaceholders: true
+      preScannedPlaceholders: false
+      placeholders:
+      - message
+      file: !file "artifacts/Applications/petstore/1.0/tomcat-sample/sample.war"
+    - name: petstore-1.0.zip
+      type: file.Folder
+      tags:
+      - petstore
+      scanPlaceholders: true
+      preScannedPlaceholders: false
+      fileUri: http://www.filekeys.com/petstore-1_3_1_02.zip
+      targetPath: /u01/app/ebanking
+      createTargetPath: "true"
+    - name: petstore-ear
+      type: jbossdm.Ear
+      tags:
+      - petstore
+      scanPlaceholders: true
+      preScannedPlaceholders: true
+      file: !file "artifacts/Applications/petstore/1.0/petstore-ear/petstore.ear"
+    dependencyResolution: LATEST
+    undeployDependencies: "false"
+  - name: "1.1"
+    type: udm.DeploymentPackage
+    orchestrator:
+    - parallel-by-container
+    satisfiesJiraTicketForUAT: jira-1
+    deployables:
+    - name: petstore-1.1.zip
+      type: file.Folder
+      tags:
+      - petstore
+      - uat
+      scanPlaceholders: true
+      preScannedPlaceholders: false
+      fileUri: http://www.filekeys.com/petstore-1_3_1_02.zip
+      targetPath: /tmp
+      createTargetPath: "true"
+    dependencyResolution: LATEST
+    undeployDependencies: "false"
+  - name: "5.0"
+    type: udm.DeploymentPackage
+    orchestrator:
+    - parallel-by-container
+    deployables:
+    - name: petstore-5.0.zip
+      type: file.Folder
+      tags:
+      - petstore
+      scanPlaceholders: true
+      preScannedPlaceholders: false
+      fileUri: http://www.filekeys.com/petstore-1_3_1_02.zip
+      targetPath: /tmp
+      createTargetPath: "true"
+    dependencyResolution: LATEST
+    undeployDependencies: "false"
+- name: Applications/petstore-maven-import
+  type: udm.Application
+  lastVersion: "1.1"
+  children:
+  - name: "1.1"
+    type: udm.DeploymentPackage
+    orchestrator:
+    - parallel-by-container
+    satisfiesJiraTicketForUAT: jira-1
+    deployables:
+    - name: petstore-maven-import-1.1.zip
+      type: file.Folder
+      tags:
+      - petstore
+      - petstore-maven-import
+      - uat
+      scanPlaceholders: true
+      preScannedPlaceholders: false
+      fileUri: http://www.filekeys.com/petstore-1_3_1_02.zip
+      targetPath: /Users/applications/
+      createTargetPath: "true"
+    dependencyResolution: LATEST
+    undeployDependencies: "false"
+- name: Applications/sugar-hello-world-rpm
+  type: udm.Application
+  lastVersion: "1.1"
+  children:
+  - name: "1.1"
+    type: udm.DeploymentPackage
+    orchestrator:
+    - parallel-by-container
+    satisfiesJiraTicketForUAT: jira-1
+    deployables:
+    - name: sugar-hello-world-rpm-1.1.zip
+      type: file.Folder
+      tags:
+      - sugar-hello-world-rpm
+      - petstore
+      - uat
+      scanPlaceholders: true
+      preScannedPlaceholders: false
+      fileUri: http://www.filekeys.com/sugar-hello-world.zip
+      targetPath: /Users/applications/
+      createTargetPath: "true"
+    dependencyResolution: LATEST
+    undeployDependencies: "false"
+- name: Applications/windows-webform
+  type: udm.Application
+  lastVersion: "1.1"
+  children:
+  - name: "1.1"
+    type: udm.DeploymentPackage
+    orchestrator:
+    - parallel-by-container
+    satisfiesJiraTicketForUAT: jira-1
+    deployables:
+    - name: windows-webform-1.1.zip
+      type: file.Archive
+      tags:
+      - windows-webform
+      - uat
+      scanPlaceholders: true
+      preScannedPlaceholders: false
+      fileUri: http://www.filekeys.com/ZKBPoCWindows1.zip
+      targetPath: C:\inetpub\wwwroot
+      createTargetPath: "true"
+      targetFileName: ZKBPoC.zip
+    dependencyResolution: LATEST
+    undeployDependencies: "false"
+---
+apiVersion: xl-deploy/v1
+kind: Users
+spec:
+- username: admin
+  password: !value "user_admin_password"

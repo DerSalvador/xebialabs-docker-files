@@ -126,6 +126,104 @@ for container in webcontainers("petstore"):
         target_host=container.host))
 
 
+##########################################################################
+# Deployment Plan JCP Migration
+##########################################################################
+for container in webcontainers("JCP Migration"):
+    context.addStep(steps.os_script(
+        description="Stop Application - %s" % container.name,
+        order=0,
+        script="scripts/deploymentsteps",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'chatops'},
+        target_host=container.host))
+
+    context.addStep(steps.os_script(
+        description="Database Prepare - %s" % container.name,
+        order=15,
+        script="scripts/deploymentsteps",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'disable_monitoring'},
+        target_host=container.host))
+
+    context.addStep(steps.os_script(
+        description="Tomcat | JBoss Deployment (Ansible) - %s" % container.name,
+        order=20,
+        script="scripts/deploymentsteps",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'maintenance_page'},
+        target_host=container.host))
+
+    context.addStep(steps.os_script(
+        description="Database Deployment - %s" % container.name,
+        order=25,
+        script="scripts/deploymentsteps",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'stop_servers_delete_caches'},
+        target_host=container.host))
+
+    context.addStep(steps.os_script(
+        description="Application Deployment (Application Configuration Deployment by another package) - %s" % container.name,
+        order=26,
+        script="scripts/deploymentsteps",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
+        target_host=container.host))
+
+    context.addStep(steps.os_script(
+        description="Web Server (Proxy) (Ansible) - %s" % container.name,
+        order=27,
+        script="scripts/deploymentsteps",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'provision'},
+        target_host=container.host))
+
+    context.addStep(steps.os_script(
+        description="Web Content - %s" % container.name,
+        order=27,
+        script="scripts/deploymentsteps",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'provision'},
+        target_host=container.host))
+
+    context.addStep(steps.os_script(
+        description="Restart Webserver (if defined) - %s" % container.name,
+        order=101,
+        script="scripts/smokeTestCurl",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'smoketest'},
+        target_host=container.host))
+
+    context.addStep(steps.os_script(
+        description="Addon Deployment %s" % container.name,
+        order=101,
+        script="scripts/smokeTestCurl",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'smoketest'},
+        target_host=container.host))
+
+    context.addStep(steps.os_script(
+        description="Run smoketest(s) %s" % container.name,
+        order=101,
+        script="scripts/smokeTestCurl",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'smoketest'},
+        target_host=container.host))
+
+    context.addStep(steps.os_script(
+        description="Enable Monitoring - %s" % container.name,
+        order=110,
+        script="scripts/deploymentsteps",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'enable_monitoring'},
+        target_host=container.host))
+
+# JCP Deployment
+# Ablauf Deployment:
+# Step #             Name                                                 Dependency
+# 1                     Stop Application Step
+# 2                     Database Prepare Step                                 1
+# 3                     Tomcat | JBoss Deployment             1
+# 4                     Database Deployment                                   2
+# 5                     Application Deployment                                1,3
+# 6                     Application Configuration Deployment          1,3
+# 7                     Web Server (Proxy)                                       1,3
+# 8                     Web Content                                                 1,3,7
+# 9                     Addon Deployment                                        1,3
+# 10                   Restart Webserver (if defined)                      7,8
+# 11                   Restart Application                                        1,3,4,5,6
+# 12                   Smoketest                                                     11
+
+
 # 0 = PRE_FLIGHT
 # 10 = STOP_ARTIFACTS
 # 20 = STOP_CONTAINERS

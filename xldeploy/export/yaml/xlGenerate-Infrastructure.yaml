@@ -1,0 +1,145 @@
+---
+apiVersion: xl-deploy/v1
+kind: Infrastructure
+spec:
+- name: Infrastructure/Windows10Cifs
+  type: overthere.CifsHost
+  tags:
+  - windows-webform
+  puppetPath: /usr/local/bin
+  os: WINDOWS
+  connectionType: WINRM_INTERNAL
+  address: DESKTOP-OU0F15M
+  username: Administrator
+  password: !value "Infrastructure_Windows10Cifs_password"
+  winrmEnableHttps: false
+  winrsAllowDelegate: false
+  cifsPort: 445
+- name: Infrastructure/mac-1
+  type: overthere.SshHost
+  tags:
+  - petstore
+  os: UNIX
+  puppetPath: /usr/local/bin
+  connectionType: INTERACTIVE_SUDO
+  address: 192.168.43.179
+  port: 22
+  username: root
+  privateKeyFile: /opt/xebialabs/xl-deploy-server/id_rsa
+  sudoUsername: root
+  children:
+  - name: jboss.192.168.64.122.nip.io
+    type: jbossdm.StandaloneServer
+    tags:
+    - petstore
+    home: /opt/jboss/wildfly
+    port: 80
+    enableDaemon: true
+    commandExecutionMode: CLI_COMMANDS
+    adminHostAddress: jboss.192.168.64.122.nip.io
+    username: admin
+    password: !value "Infrastructure_mac_1_jboss_192_168_64_122_nip_io_password"
+    cliScriptPrefix: jboss-cli
+  - name: jboss.192.168.64.122.xip.io
+    type: jbossdm.StandaloneServer
+    tags:
+    - petstore
+    home: /opt/jboss/wildfly
+    port: 80
+    enableDaemon: true
+    commandExecutionMode: CLI_COMMANDS
+    adminHostAddress: jboss.192.168.64.122.xip.io
+    username: admin
+    password: !value "Infrastructure_mac_1_jboss_192_168_64_122_xip_io_password"
+    cliScriptPrefix: jboss-cli
+  - name: jboss.local
+    type: jbossdm.StandaloneServer
+    tags:
+    - petstore
+    home: /opt/jboss/wildfly
+    port: 9990
+    enableDaemon: true
+    commandExecutionMode: CLI_COMMANDS
+    adminHostAddress: 192.168.1.20
+    username: admin
+    password: !value "Infrastructure_mac_1_jboss_local_password"
+    cliScriptPrefix: jboss-cli
+  - name: mac-jboss
+    type: jbossdm.StandaloneServer
+    tags:
+    - petstore
+    home: /opt/jboss/wildfly
+    port: 9990
+    enableDaemon: true
+    commandExecutionMode: CLI_COMMANDS
+    adminHostAddress: 192.168.43.179
+    username: admin
+    password: !value "Infrastructure_mac_1_mac_jboss_password"
+    cliScriptPrefix: jboss-cli
+- name: Infrastructure/mac-2
+  type: overthere.SshHost
+  tags:
+  - petstore
+  os: UNIX
+  puppetPath: /usr/local/bin
+  connectionType: INTERACTIVE_SUDO
+  address: 192.168.43.179
+  port: 22
+  username: root
+  privateKeyFile: /opt/xebialabs/xl-deploy-server/id_rsa
+  sudoUsername: root
+  children:
+  - name: jboss.local
+    type: jbossdm.StandaloneServer
+    tags:
+    - petstore
+    home: /opt/jboss/wildfly
+    port: 9990
+    enableDaemon: true
+    commandExecutionMode: CLI_COMMANDS
+    adminHostAddress: 192.168.1.20
+    username: admin
+    password: !value "Infrastructure_mac_2_jboss_local_password"
+    cliScriptPrefix: jboss-cli
+  - name: mac-jboss
+    type: jbossdm.StandaloneServer
+    tags:
+    - petstore
+    home: /opt/jboss/wildfly
+    port: 9990
+    enableDaemon: true
+    commandExecutionMode: CLI_COMMANDS
+    adminHostAddress: 192.168.43.179
+    username: admin
+    password: !value "Infrastructure_mac_2_mac_jboss_password"
+    cliScriptPrefix: jboss-cli
+  - name: jboss.192.168.64.122.xip.io
+    type: jbossdm.StandaloneServer
+    tags:
+    - petstore
+    home: /opt/jboss/wildfly
+    port: 80
+    enableDaemon: true
+    commandExecutionMode: CLI_COMMANDS
+    adminHostAddress: jboss.192.168.64.122.xip.io
+    username: admin
+    password: !value "Infrastructure_mac_2_jboss_192_168_64_122_xip_io_password"
+    cliScriptPrefix: jboss-cli
+  - name: jboss.192.168.64.122.nip.io
+    type: jbossdm.StandaloneServer
+    tags:
+    - petstore
+    home: /opt/jboss/wildfly
+    port: 80
+    enableDaemon: true
+    commandExecutionMode: CLI_COMMANDS
+    adminHostAddress: jboss.192.168.64.122.nip.io
+    username: admin
+    password: !value "Infrastructure_mac_2_jboss_192_168_64_122_nip_io_password"
+    cliScriptPrefix: jboss-cli
+---
+apiVersion: xl-deploy/v1
+kind: Users
+spec:
+- username: admin
+  password: !value "user_admin_password"

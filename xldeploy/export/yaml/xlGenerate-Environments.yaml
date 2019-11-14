@@ -1,0 +1,56 @@
+---
+apiVersion: xl-deploy/v1
+kind: Environments
+spec:
+- name: Environments/PRD
+  type: udm.Environment
+  members:
+  - Infrastructure/mac-2
+  - Infrastructure/mac-2/jboss.192.168.64.122.xip.io
+  - Infrastructure/Windows10Cifs
+  dictionaries:
+  - Environments/PRD_DICT
+  triggers:
+  - Configuration/FailedStepTrigger
+  smtpServer: Configuration/PRD_SMTP_SERVER
+  jiraUrl: "false"
+  jiraUsername: "false"
+  jiraPassword: !value "Environments_PRD_jiraPassword"
+  requiresJiraTicketForUAT: false
+  requiresJiraTicketForProduction: false
+- name: Environments/PRD_DICT
+  type: udm.Dictionary
+  entries:
+    WINDOWS_SMOKETEST_URL: http://DESKTOP-OU0F15M:8080
+    JBOSS_HOME: /opt/jboss/wildfly
+    message: Hello PRD ZKB!
+    PETSTORE_SMOKETEST_URL: http://jboss-webapp.192.168.64.122.nip.io/tomcat-sample/hello.jsp
+- name: Environments/UAT
+  type: udm.Environment
+  members:
+  - Infrastructure/mac-1/jboss.192.168.64.122.xip.io
+  - Infrastructure/Windows10Cifs
+  - Infrastructure/mac-1
+  dictionaries:
+  - Environments/UAT_DICT
+  triggers:
+  - Configuration/FailedStepTrigger
+  smtpServer: Configuration/UAT_SMTP_SERVER
+  jiraUrl: "false"
+  jiraUsername: "false"
+  jiraPassword: !value "Environments_UAT_jiraPassword"
+  requiresJiraTicketForUAT: false
+  requiresJiraTicketForProduction: false
+- name: Environments/UAT_DICT
+  type: udm.Dictionary
+  entries:
+    WINDOWS_SMOKETEST_URL: http://DESKTOP-OU0F15M:8080
+    JBOSS_HOME: /opt/jboss/wildfly
+    message: Hello UAT ZKB!
+    PETSTORE_SMOKETEST_URL: http://jboss-webapp.192.168.64.122.nip.io/tomcat-sample/hello.jsp
+---
+apiVersion: xl-deploy/v1
+kind: Users
+spec:
+- username: admin
+  password: !value "user_admin_password"

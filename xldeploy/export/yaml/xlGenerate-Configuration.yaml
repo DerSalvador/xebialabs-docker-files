@@ -1,0 +1,48 @@
+---
+apiVersion: xl-deploy/v1
+kind: Configuration
+spec:
+- name: Configuration/CD-PIPELINE
+  type: release.DeploymentPipeline
+  pipeline:
+  - Environments/UAT
+  - Environments/PRD
+- name: Configuration/FailedEmailAction
+  type: trigger.EmailNotification
+  toAddresses:
+  - filekeys@gmail.com
+  fromAddress: mellouk@filekeys.com
+  subject: Deployment step for Application ${deployedApplication.version.application.name}
+    has failed.
+  sendContentAsHtml: true
+  body: <h1>Deployment of ${deployedApplication.version.application.name} has failed
+    on environment ${deployedApplication.environment.name}</h1>
+  mailServer: Configuration/UAT_SMTP_SERVER
+- name: Configuration/FailedStepTrigger
+  type: trigger.StepTrigger
+  actions:
+  - Configuration/FailedEmailAction
+  fromState: ANY
+  toState: FAILED
+- name: Configuration/PRD_SMTP_SERVER
+  type: mail.SmtpServer
+  host: smtp.eu.mailgun.org
+  port: 587
+  username: postmaster@io.brokerme.club
+  password: !value "Configuration_PRD_SMTP_SERVER_password"
+  fromAddress: postmaster@io.brokerme.club
+  testAddress: filekeys@gmail.com
+- name: Configuration/UAT_SMTP_SERVER
+  type: mail.SmtpServer
+  host: mail.filekeys.com
+  port: 25
+  username: mellouk
+  password: !value "Configuration_UAT_SMTP_SERVER_password"
+  fromAddress: mellouk@filekeys.com
+  testAddress: filekeys@gmail.com
+---
+apiVersion: xl-deploy/v1
+kind: Users
+spec:
+- username: admin
+  password: !value "user_admin_password"

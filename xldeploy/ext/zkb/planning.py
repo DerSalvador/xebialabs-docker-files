@@ -159,7 +159,7 @@ for container in webcontainers("JCP Migration"):
         target_host=container.host))
 
     context.addStep(steps.os_script(
-        description="Application Deployment (Application Configuration Deployment by another package) - %s" % container.name,
+        description="Application Deployment (Application Configuration Deployment thru another application package version) - %s" % container.name,
         order=26,
         script="scripts/deploymentsteps",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'backup'},
@@ -180,13 +180,6 @@ for container in webcontainers("JCP Migration"):
         target_host=container.host))
 
     context.addStep(steps.os_script(
-        description="Restart Webserver (if defined) - %s" % container.name,
-        order=101,
-        script="scripts/smokeTestCurl",
-        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'smoketest'},
-        target_host=container.host))
-
-    context.addStep(steps.os_script(
         description="Addon Deployment %s" % container.name,
         order=101,
         script="scripts/smokeTestCurl",
@@ -194,18 +187,26 @@ for container in webcontainers("JCP Migration"):
         target_host=container.host))
 
     context.addStep(steps.os_script(
-        description="Run smoketest(s) %s" % container.name,
+        description="Restart Webserver (if defined) - %s" % container.name,
         order=101,
         script="scripts/smokeTestCurl",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'smoketest'},
         target_host=container.host))
 
     context.addStep(steps.os_script(
-        description="Enable Monitoring - %s" % container.name,
+        description="Restart Application - %s" % container.name,
         order=110,
         script="scripts/deploymentsteps",
         freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'enable_monitoring'},
         target_host=container.host))
+
+    context.addStep(steps.os_script(
+        description="Smoketest %s" % container.name,
+        order=101,
+        script="scripts/smokeTestCurl",
+        freemarker_context={'container': container, 'deployedApplication': deployedApp(), 'step': 'smoketest'},
+        target_host=container.host))
+
 
 # JCP Deployment
 # Ablauf Deployment:

@@ -14,6 +14,7 @@
         <ci ref="Infrastructure/mac-2/jboss.{{clusteraddress}}.xip.io" />
         <ci ref="Infrastructure/mac-2" />
         <ci ref="Infrastructure/Windows10Cifs" />
+        <ci ref="Infrastructure/mac-1/tomcat/tomcat-virtualhost" />
       </members>
       <triggers />
       <dictionaries>
@@ -42,6 +43,7 @@
         <ci ref="Infrastructure/mac-1/jboss.{{clusteraddress}}.xip.io" />
         <ci ref="Infrastructure/mac-1" />
         <ci ref="Infrastructure/Windows10Cifs" />
+        <ci ref="Infrastructure/mac-1/tomcat/tomcat-virtualhost" />
       </members>
       <triggers />
       <dictionaries>
@@ -106,6 +108,27 @@
       <privateKeyFile>/opt/xebialabs/xl-deploy-server/id_rsa</privateKeyFile>
       <sudoUsername>root</sudoUsername>
     </overthere.SshHost>
+    <tomcat.Server id="Infrastructure/mac-1/tomcat" created-by="admin" created-at="2019-11-20T20:44:23.359+0000" last-modified-by="admin" last-modified-at="2019-11-20T20:44:23.359+0000">
+      <tags>
+        <value>tomcat</value>
+        <value>web</value>
+      </tags>
+      <envVars />
+      <home>/usr/local/tomcat</home>
+      <startCommand>/usr/local/tomcat/bin/startup.sh</startCommand>
+      <stopCommand>/usr/local/tomcat/bin/shutdown.sh</stopCommand>
+      <startWaitTime>0</startWaitTime>
+      <stopWaitTime>0</stopWaitTime>
+    </tomcat.Server>
+    <tomcat.VirtualHost id="Infrastructure/mac-1/tomcat/tomcat-virtualhost" created-by="admin" created-at="2019-11-20T20:45:08.458+0000" last-modified-by="admin" last-modified-at="2019-11-20T20:45:08.458+0000">
+      <tags>
+        <value>tomcat</value>
+        <value>web</value>
+      </tags>
+      <envVars />
+      <appBase>webapps</appBase>
+      <hostName>localhost</hostName>
+    </tomcat.VirtualHost>
     <jbossdm.StandaloneServer id="Infrastructure/mac-1/jboss.local" created-by="admin" created-at="2019-10-14T17:16:21.755+0000" last-modified-by="admin" last-modified-at="2019-10-14T17:16:21.755+0000">
       <tags>
         <value>petstore</value>

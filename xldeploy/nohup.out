@@ -1,18 +1,2 @@
-Forwarding from 127.0.0.1:4516 -> 4516
-Forwarding from [::1]:4516 -> 4516
-Handling connection for 4516
-Handling connection for 4516
-Handling connection for 4516
-Handling connection for 4516
-Handling connection for 4516
-Handling connection for 4516
-Handling connection for 4516
-Handling connection for 4516
-Handling connection for 4516
-Handling connection for 4516
-Handling connection for 4516
-Handling connection for 4516
-Handling connection for 4516
-Handling connection for 4516
-Handling connection for 4516
-E1207 18:21:06.382635    7968 portforward.go:233] lost connection to pod
+Unable to connect to the server: dial tcp 192.168.64.145:8443: i/o timeout
+Unable to connect to the server: dial tcp 192.168.64.145:8443: i/o timeout

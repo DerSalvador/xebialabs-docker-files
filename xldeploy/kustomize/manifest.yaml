@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: xl-deploy
+  name: xl-deploy
+  namespace: xl-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xl-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: xl-deploy
+    spec:
+      containers:
+      - env:
+        - name: ACCEPT_EULA
+          value: "Y"
+        - name: ADMIN_PASSWORD
+          value: changeit
+        image: docker.io/brokerme/xl-deploy:9.0.5-centos-debug-planning
+        name: xl-deploy
+        resources: {}
+status: {}

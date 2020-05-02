@@ -89,7 +89,7 @@
       <os>UNIX</os>
       <puppetPath>/usr/local/bin</puppetPath>
       <connectionType>INTERACTIVE_SUDO</connectionType>
-      <address>192.168.1.20</address>
+      <address>192.168.1.206</address>
       <port>22</port>
       <username>root</username>
       <privateKeyFile>/opt/xebialabs/xl-deploy-server/id_rsa</privateKeyFile>
@@ -102,7 +102,7 @@
       <os>UNIX</os>
       <puppetPath>/usr/local/bin</puppetPath>
       <connectionType>INTERACTIVE_SUDO</connectionType>
-      <address>192.168.1.20</address>
+      <address>192.168.1.206</address>
       <port>22</port>
       <username>root</username>
       <privateKeyFile>/opt/xebialabs/xl-deploy-server/id_rsa</privateKeyFile>
@@ -176,7 +176,7 @@
       <port>9990</port>
       <enableDaemon>true</enableDaemon>
       <commandExecutionMode>CLI_COMMANDS</commandExecutionMode>
-      <adminHostAddress>192.168.1.20</adminHostAddress>
+      <adminHostAddress>192.168.1.206</adminHostAddress>
       <username>admin</username>
       <password>{aes:v0}wyoI5G4fDaNgUEqg7bSm9rX2BZoGVdss+EZwMZ1NWeI=</password>
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>
@@ -228,7 +228,7 @@
       <port>9990</port>
       <enableDaemon>true</enableDaemon>
       <commandExecutionMode>CLI_COMMANDS</commandExecutionMode>
-      <adminHostAddress>192.168.1.20</adminHostAddress>
+      <adminHostAddress>192.168.1.206</adminHostAddress>
       <username>admin</username>
       <password>{aes:v0}wyoI5G4fDaNgUEqg7bSm9rX2BZoGVdss+EZwMZ1NWeI=</password>
       <cliScriptPrefix>jboss-cli</cliScriptPrefix>

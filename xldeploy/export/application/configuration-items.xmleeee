@@ -55,7 +55,7 @@
       <placeholders />
       <checksum>446f798dbd88ca7a8707ce307d0edca930f0f70b</checksum>
       <fileUri>http://www.filekeys.com/petstore-1_3_1_02.zip</fileUri>
-      <targetPath>/tmp/app/appname</targetPath>
+      <targetPath>/tmp/app/ebanking</targetPath>
       <createTargetPath>true</createTargetPath>
     </file.Folder>
     <jbossdm.Ear id="Applications/petstore/1.0/petstore-ear" created-by="admin" created-at="2019-10-20T18:57:12.692+0000" last-modified-by="admin" last-modified-at="2019-10-20T18:57:12.692+0000" file="Applications/petstore/1.0/petstore-ear/petstore.ear">
@@ -121,7 +121,7 @@
       <placeholders />
       <checksum>446f798dbd88ca7a8707ce307d0edca930f0f70b</checksum>
       <fileUri>http://www.filekeys.com/petstore-1_3_1_02.zip</fileUri>
-      <targetPath>/tmp/app/appname</targetPath>
+      <targetPath>/tmp/app/ebanking</targetPath>
       <createTargetPath>true</createTargetPath>
     </file.Folder>
     <udm.DeploymentPackage id="Applications/petstore/5.0" created-by="admin" created-at="2019-10-20T18:57:12.692+0000" last-modified-by="admin" last-modified-at="2019-10-20T18:57:12.692+0000">

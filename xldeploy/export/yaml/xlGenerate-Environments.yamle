@@ -23,7 +23,7 @@ spec:
   entries:
     WINDOWS_SMOKETEST_URL: http://DESKTOP-OU0F15M:8080
     JBOSS_HOME: /opt/jboss/wildfly
-    message: Hello PRD AlterLeipziger!
+    message: Hello PRD ZKB!
     PETSTORE_SMOKETEST_URL: http://jboss-webapp.192.168.64.122.nip.io/tomcat-sample/hello.jsp
 - name: Environments/UAT
   type: udm.Environment
@@ -46,7 +46,7 @@ spec:
   entries:
     WINDOWS_SMOKETEST_URL: http://DESKTOP-OU0F15M:8080
     JBOSS_HOME: /opt/jboss/wildfly
-    message: Hello UAT AlterLeipziger!
+    message: Hello UAT ZKB!
     PETSTORE_SMOKETEST_URL: http://jboss-webapp.192.168.64.122.nip.io/tomcat-sample/hello.jsp
 ---
 apiVersion: xl-deploy/v1

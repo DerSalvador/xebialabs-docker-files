@@ -15,19 +15,3 @@ Handling connection for 4516
 Handling connection for 4516
 Handling connection for 4516
 Handling connection for 4516
-E0323 21:57:48.613708   61792 portforward.go:400] an error occurred forwarding 4516 -> 4516: error forwarding port 4516 to pod 68f17a2887426af23c5ae6aaa0b369b04132b1259c7442c36f9011e74b9e27b7, uid : exit status 1: 2020/03/23 20:57:48 socat[27654] E connect(5, AF=2 127.0.0.1:4516, 16): Connection refused
-Handling connection for 4516
-E0323 21:57:48.642450   61792 portforward.go:400] an error occurred forwarding 4516 -> 4516: error forwarding port 4516 to pod 68f17a2887426af23c5ae6aaa0b369b04132b1259c7442c36f9011e74b9e27b7, uid : exit status 1: 2020/03/23 20:57:48 socat[27655] E connect(5, AF=2 127.0.0.1:4516, 16): Connection refused
-Handling connection for 4516
-E0323 21:57:48.663750   61792 portforward.go:400] an error occurred forwarding 4516 -> 4516: error forwarding port 4516 to pod 68f17a2887426af23c5ae6aaa0b369b04132b1259c7442c36f9011e74b9e27b7, uid : exit status 1: 2020/03/23 20:57:48 socat[27656] E connect(5, AF=2 127.0.0.1:4516, 16): Connection refused
-Handling connection for 4516
-E0323 21:57:48.685396   61792 portforward.go:400] an error occurred forwarding 4516 -> 4516: error forwarding port 4516 to pod 68f17a2887426af23c5ae6aaa0b369b04132b1259c7442c36f9011e74b9e27b7, uid : exit status 1: 2020/03/23 20:57:48 socat[27657] E connect(5, AF=2 127.0.0.1:4516, 16): Connection refused
-Handling connection for 4516
-E0323 21:58:02.143890   61792 portforward.go:400] an error occurred forwarding 4516 -> 4516: error forwarding port 4516 to pod 68f17a2887426af23c5ae6aaa0b369b04132b1259c7442c36f9011e74b9e27b7, uid : exit status 1: 2020/03/23 20:58:02 socat[27867] E connect(5, AF=2 127.0.0.1:4516, 16): Connection refused
-Handling connection for 4516
-E0323 21:58:02.166834   61792 portforward.go:400] an error occurred forwarding 4516 -> 4516: error forwarding port 4516 to pod 68f17a2887426af23c5ae6aaa0b369b04132b1259c7442c36f9011e74b9e27b7, uid : exit status 1: 2020/03/23 20:58:02 socat[27868] E connect(5, AF=2 127.0.0.1:4516, 16): Connection refused
-Handling connection for 4516
-E0323 21:58:02.213862   61792 portforward.go:400] an error occurred forwarding 4516 -> 4516: error forwarding port 4516 to pod 68f17a2887426af23c5ae6aaa0b369b04132b1259c7442c36f9011e74b9e27b7, uid : exit status 1: 2020/03/23 20:58:02 socat[27869] E connect(5, AF=2 127.0.0.1:4516, 16): Connection refused
-Handling connection for 4516
-E0323 21:58:02.253993   61792 portforward.go:400] an error occurred forwarding 4516 -> 4516: error forwarding port 4516 to pod 68f17a2887426af23c5ae6aaa0b369b04132b1259c7442c36f9011e74b9e27b7, uid : exit status 1: 2020/03/23 20:58:02 socat[27870] E connect(5, AF=2 127.0.0.1:4516, 16): Connection refused
-E0323 22:02:37.734983   61792 portforward.go:233] lost connection to pod

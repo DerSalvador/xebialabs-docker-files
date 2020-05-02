@@ -63,7 +63,7 @@ spec:
       scanPlaceholders: true
       preScannedPlaceholders: false
       fileUri: http://www.filekeys.com/petstore-1_3_1_02.zip
-      targetPath: /tmp/app/appname
+      targetPath: /tmp/app/ebanking
       createTargetPath: "true"
     dependencyResolution: LATEST
     undeployDependencies: "false"
@@ -88,7 +88,7 @@ spec:
       scanPlaceholders: true
       preScannedPlaceholders: false
       fileUri: http://www.filekeys.com/petstore-1_3_1_02.zip
-      targetPath: /tmp/app/appname
+      targetPath: /tmp/app/ebanking
       createTargetPath: "true"
     - name: petstore-ear
       type: jbossdm.Ear
